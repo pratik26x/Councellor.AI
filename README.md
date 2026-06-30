@@ -1,7 +1,5 @@
 # Counsellor.AI
 
-> **A Rising Education Initiative**
->
 > India's complete student counselling platform — college predictions, scholarships, study materials, PG accommodation, mess & tiffin finder, and user authentication.
 
 ---
@@ -515,4 +513,4 @@ python main.py
 
 ---
 
-*&copy; 2026 Counsellor.AI &mdash; A Rising Education Initiative*
+*&copy; 2026 Counsellor.AI &mdash; *
