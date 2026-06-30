@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/profile.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+
+  <div class="profile-page">
+
+    <!-- SIDEBAR -->
+    <aside class="profile-sidebar">
+      <div class="profile-avatar-wrap">
+        <div class="profile-avatar" id="sidebar-avatar">?</div>
+        <h3 id="sidebar-name">Loading...</h3>
+        <p id="sidebar-email" class="sidebar-email"></p>
+        <span class="sidebar-role" id="sidebar-role">Student</span>
+      </div>
+      <nav class="profile-nav">
+        <a href="#account"  class="pnav-item active" onclick="showTab('account',this)">&#128100; Account Info</a>
+        <a href="#password" class="pnav-item" onclick="showTab('password',this)">&#128274; Change Password</a>
+        <a href="#activity" class="pnav-item" onclick="showTab('activity',this)">&#128202; Activity</a>
+      </nav>
+      <button class="btn-logout-sidebar" onclick="navLogout()">&#128682; Log Out</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="profile-main">
+
+      <!-- BANNER -->
+      <div class="profile-banner hidden" id="profile-banner"></div>
+
+      <!-- ── TAB: ACCOUNT INFO ── -->
+      <section class="profile-tab active" id="tab-account">
+        <div class="tab-header">
+          <h2>Account Information</h2>
+          <p>Update your name and username. Email cannot be changed.</p>
+        </div>
+        <form class="profile-form" id="form-account" onsubmit="saveAccount(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="acc-name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="acc-username" placeholder="username"
+                oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9_]/g,'')" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address <span class="locked-badge">&#128274; Locked</span></label>
+              <input type="email" id="acc-email" disabled />
+            </div>
+            <div class="form-group">
+              <label>Account Role</label>
+              <input type="text" id="acc-role" disabled />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Member Since</label>
+              <input type="text" id="acc-created" disabled />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-save" id="btn-save-account">Save Changes</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ── TAB: CHANGE PASSWORD ── -->
+      <section class="profile-tab hidden" id="tab-password">
+        <div class="tab-header">
+          <h2>Change Password</h2>
+          <p>Choose a strong password with at least 6 characters.</p>
+        </div>
+        <form class="profile-form" id="form-password" onsubmit="changePassword(event)">
+          <div class="form-group">
+            <label>Current Password</label>
+            <div class="input-wrap">
+              <input type="password" id="pw-current" placeholder="Enter current password" required />
+              <button type="button" class="toggle-pw" onclick="togglePw('pw-current',this)">&#128065;</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <div class="input-wrap">
+              <input type="password" id="pw-new" placeholder="Min. 6 characters" required
+                oninput="checkStrength(this.value)" />
+              <button type="button" class="toggle-pw" onclick="togglePw('pw-new',this)">&#128065;</button>
+            </div>
+            <div class="pw-strength"><div class="pw-bar" id="pw-bar"></div></div>
+            <small class="field-hint" id="pw-hint"></small>
+          </div>
+          <div class="form-group">
+            <label>Confirm New Password</label>
+            <div class="input-wrap">
+              <input type="password" id="pw-confirm" placeholder="Repeat new password" required />
+              <button type="button" class="toggle-pw" onclick="togglePw('pw-confirm',this)">&#128065;</button>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-save" id="btn-save-pw">Update Password</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ── TAB: ACTIVITY ── -->
+      <section class="profile-tab hidden" id="tab-activity">
+        <div class="tab-header">
+          <h2>Account Activity</h2>
+          <p>Your recent activity on Counsellor.AI.</p>
+        </div>
+        <div class="activity-grid">
+          <div class="activity-card">
+            <span class="activity-icon">&#127891;</span>
+            <h4>College Predictions</h4>
+            <p class="activity-val">Available</p>
+            <p class="activity-sub">Use the Predictors section</p>
+          </div>
+          <div class="activity-card">
+            <span class="activity-icon">&#127941;</span>
+            <h4>Scholarships Viewed</h4>
+            <p class="activity-val">100+</p>
+            <p class="activity-sub">Browse all scholarships</p>
+          </div>
+          <div class="activity-card">
+            <span class="activity-icon">&#128214;</span>
+            <h4>Resources Available</h4>
+            <p class="activity-val">29+</p>
+            <p class="activity-sub">Free PYQs &amp; notes</p>
+          </div>
+          <div class="activity-card">
+            <span class="activity-icon">&#127968;</span>
+            <h4>PG Listings</h4>
+            <p class="activity-val">18+</p>
+            <p class="activity-sub">Across Maharashtra</p>
+          </div>
+        </div>
+        <div class="danger-zone">
+          <h3>&#9888; Danger Zone</h3>
+          <p>Permanently delete your account. This action cannot be undone.</p>
+          <button class="btn-danger" onclick="confirmDelete()">Delete My Account</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+  const API   = 'http://127.0.0.1:5000/api/auth';
+  const token = localStorage.getItem('auth_token');
+
+  /* ── Auth guard ── */
+  if (!token) { window.location.href = '/pages/login.html'; }
+
+  /* ── Load user data ── */
+  async function loadUser() {
+    try {
+      const res  = await fetch(`${API}/me`, { headers: { 'Authorization': 'Bearer ' + token } });
+      const data = await res.json();
+      if (!res.ok) { window.location.href = '/pages/login.html'; return; }
+      const u = data.user;
+      // Update localStorage with fresh data
+      localStorage.setItem('auth_user', JSON.stringify(u));
+      // Sidebar
+      document.getElementById('sidebar-avatar').textContent = u.full_name.charAt(0).toUpperCase();
+      document.getElementById('sidebar-name').textContent   = u.full_name;
+      document.getElementById('sidebar-email').textContent  = u.email;
+      document.getElementById('sidebar-role').textContent   = u.role.charAt(0).toUpperCase() + u.role.slice(1);
+      // Account form
+      document.getElementById('acc-name').value     = u.full_name;
+      document.getElementById('acc-username').value = u.username;
+      document.getElementById('acc-email').value    = u.email;
+      document.getElementById('acc-role').value     = u.role.charAt(0).toUpperCase() + u.role.slice(1);
+      document.getElementById('acc-created').value  = u.created_at
+        ? new Date(u.created_at).toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' })
+        : 'N/A';
+    } catch {
+      showBanner('Could not load profile. Check server connection.', 'error');
+    }
+  }
+
+  /* ── Save account info ── */
+  async function saveAccount(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-save-account');
+    btn.disabled = true; btn.textContent = 'Saving...';
+    try {
+      const res  = await fetch(`${API}/update`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+        body: JSON.stringify({
+          full_name: document.getElementById('acc-name').value.trim(),
+          username:  document.getElementById('acc-username').value.trim(),
+        })
+      });
+      const data = await res.json();
+      if (!res.ok) { showBanner(data.error || 'Update failed.', 'error'); return; }
+      localStorage.setItem('auth_user', JSON.stringify(data.user));
+      showBanner('Profile updated successfully!', 'success');
+      loadUser();
+    } catch {
+      showBanner('Server error. Please try again.', 'error');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Save Changes';
+    }
+  }
+
+  /* ── Change password ── */
+  async function changePassword(e) {
+    e.preventDefault();
+    const newPw  = document.getElementById('pw-new').value;
+    const confirm= document.getElementById('pw-confirm').value;
+    if (newPw !== confirm) { showBanner('New passwords do not match.', 'error'); return; }
+    if (newPw.length < 6)  { showBanner('Password must be at least 6 characters.', 'error'); return; }
+    const btn = document.getElementById('btn-save-pw');
+    btn.disabled = true; btn.textContent = 'Updating...';
+    try {
+      const res  = await fetch(`${API}/change-password`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+        body: JSON.stringify({
+          current_password: document.getElementById('pw-current').value,
+          new_password:     newPw,
+        })
+      });
+      const data = await res.json();
+      if (!res.ok) { showBanner(data.error || 'Password change failed.', 'error'); return; }
+      showBanner('Password changed successfully!', 'success');
+      document.getElementById('form-password').reset();
+    } catch {
+      showBanner('Server error. Please try again.', 'error');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Update Password';
+    }
+  }
+
+  /* ── Delete account ── */
+  async function confirmDelete() {
+    if (!confirm('Are you sure you want to permanently delete your account? This cannot be undone.')) return;
+    try {
+      await fetch(`${API}/delete`, {
+        method: 'DELETE',
+        headers: { 'Authorization': 'Bearer ' + token }
+      });
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('auth_user');
+      window.location.href = '/';
+    } catch {
+      showBanner('Could not delete account. Try again.', 'error');
+    }
+  }
+
+  /* ── Tab switching ── */
+  function showTab(name, el) {
+    document.querySelectorAll('.profile-tab').forEach(t => t.classList.add('hidden'));
+    document.querySelectorAll('.pnav-item').forEach(a => a.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.remove('hidden');
+    el.classList.add('active');
+    hideBanner();
+    return false;
+  }
+
+  /* ── Helpers ── */
+  function showBanner(msg, type) {
+    const b = document.getElementById('profile-banner');
+    b.textContent = msg;
+    b.className = 'profile-banner ' + type;
+    b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(() => b.classList.add('hidden'), 5000);
+  }
+  function hideBanner() {
+    document.getElementById('profile-banner').className = 'profile-banner hidden';
+  }
+  function togglePw(id, btn) {
+    const inp = document.getElementById(id);
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+    btn.textContent = inp.type === 'password' ? '\u{1F441}' : '\u{1F648}';
+  }
+  function checkStrength(pw) {
+    const bar = document.getElementById('pw-bar');
+    const hint= document.getElementById('pw-hint');
+    let s = 0;
+    if (pw.length >= 6)  s++;
+    if (pw.length >= 10) s++;
+    if (/[A-Z]/.test(pw)) s++;
+    if (/[0-9]/.test(pw)) s++;
+    if (/[^A-Za-z0-9]/.test(pw)) s++;
+    const labels = ['','Very Weak','Weak','Fair','Strong','Very Strong'];
+    const colors = ['','#ef4444','#f97316','#eab308','#22c55e','#10b981'];
+    bar.style.width = (s*20)+'%';
+    bar.style.background = colors[s]||'#e5e7eb';
+    hint.textContent = labels[s]||'';
+    hint.style.color = colors[s]||'';
+  }
+
+  loadUser();
+  </script>
+</body>
+</html>

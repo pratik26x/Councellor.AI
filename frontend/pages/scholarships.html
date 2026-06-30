@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarships - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/scholarships.css" />
+</head>
+<body>
+<script src="/js/nav.js"></script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="badge">&#127941; Scholarships</span>
+    <h1>Find Scholarships<br /><span>You Qualify For</span></h1>
+    <p>Explore 100+ government and private scholarships for merit, category, and need-based students across India. Never miss a deadline again.</p>
+    <div class="hero-stats">
+      <div class="stat-pill">&#128203; <strong>100+</strong> Scholarships</div>
+      <div class="stat-pill">&#128176; <strong>Rs.1.2L+</strong> Max Award</div>
+      <div class="stat-pill">&#127963; <strong>Govt &amp; Private</strong> Both</div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-illustration">
+      <div class="medal-big">&#127941;</div>
+      <div class="floating-card fc1"><span>Rs.80,000/yr</span><p>INSPIRE</p></div>
+      <div class="floating-card fc2"><span>Rs.1,20,000/yr</span><p>SC/ST Scholarship</p></div>
+      <div class="floating-card fc3"><span>Rs.50,000/yr</span><p>Pragati - Girls</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY CHECKER -->
+<section class="checker-section">
+  <div class="checker-card">
+    <h2>&#9889; Quick Eligibility Checker</h2>
+    <p>Answer 3 questions and we'll show only the scholarships you're eligible for.</p>
+    <div class="checker-form">
+      <div class="checker-field">
+        <label>Your Category</label>
+        <select id="chk-category">
+          <option value="">All Categories</option>
+          <option value="Merit">Merit (Open)</option>
+          <option value="SC/ST">SC / ST</option>
+          <option value="OBC">OBC</option>
+          <option value="EWS">EWS</option>
+          <option value="Girls">Girls</option>
+          <option value="Sports">Sports</option>
+          <option value="Minority">Minority</option>
+        </select>
+      </div>
+      <div class="checker-field">
+        <label>Annual Family Income</label>
+        <select id="chk-income">
+          <option value="">Any</option>
+          <option value="below1">Below Rs.1 LPA</option>
+          <option value="below2.5">Below Rs.2.5 LPA</option>
+          <option value="below8">Below Rs.8 LPA</option>
+          <option value="any">Above Rs.8 LPA</option>
+        </select>
+      </div>
+      <div class="checker-field">
+        <label>Current Level</label>
+        <select id="chk-level">
+          <option value="">Any</option>
+          <option value="Class 12">Class 12 / Appearing</option>
+          <option value="BTech">B.Tech / BE</option>
+          <option value="BSc">B.Sc</option>
+          <option value="Pharmacy">B.Pharm</option>
+        </select>
+      </div>
+      <button class="btn-check" onclick="runEligibilityCheck()">Check Eligibility &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+  <!-- Sidebar Filters -->
+  <aside class="sidebar">
+    <h3>&#128269; Filter Scholarships</h3>
+
+    <div class="filter-group">
+      <label>Search by Name</label>
+      <input type="text" id="search-input" placeholder="e.g. INSPIRE, Pragati..." oninput="applyFilters()" />
+    </div>
+
+    <div class="filter-group">
+      <label>Category</label>
+      <div class="checkbox-list" id="cat-filters">
+        <label class="checkbox-item"><input type="checkbox" value="Merit" onchange="applyFilters()" /> Merit</label>
+        <label class="checkbox-item"><input type="checkbox" value="SC/ST" onchange="applyFilters()" /> SC / ST</label>
+        <label class="checkbox-item"><input type="checkbox" value="OBC" onchange="applyFilters()" /> OBC</label>
+        <label class="checkbox-item"><input type="checkbox" value="EWS" onchange="applyFilters()" /> EWS</label>
+        <label class="checkbox-item"><input type="checkbox" value="Girls" onchange="applyFilters()" /> Girls</label>
+        <label class="checkbox-item"><input type="checkbox" value="Sports" onchange="applyFilters()" /> Sports</label>
+        <label class="checkbox-item"><input type="checkbox" value="Minority" onchange="applyFilters()" /> Minority</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>Provider Type</label>
+      <div class="checkbox-list">
+        <label class="checkbox-item"><input type="checkbox" value="Government" id="prov-govt" onchange="applyFilters()" /> Government</label>
+        <label class="checkbox-item"><input type="checkbox" value="Private" id="prov-pvt" onchange="applyFilters()" /> Private</label>
+        <label class="checkbox-item"><input type="checkbox" value="AICTE" id="prov-aicte" onchange="applyFilters()" /> AICTE</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>Deadline</label>
+      <select id="deadline-filter" onchange="applyFilters()">
+        <option value="">Any Time</option>
+        <option value="1">Within 1 Month</option>
+        <option value="3">Within 3 Months</option>
+        <option value="6">Within 6 Months</option>
+      </select>
+    </div>
+
+    <button class="btn-clear" onclick="clearFilters()">&#10005; Clear All Filters</button>
+  </aside>
+
+  <!-- Scholarship Listings -->
+  <div class="listings">
+    <div class="listings-bar">
+      <span id="result-count">Loading...</span>
+      <div class="sort-row">
+        <label>Sort by:</label>
+        <select id="sort-select" onchange="applyFilters()">
+          <option value="deadline">Deadline (Soonest)</option>
+          <option value="amount">Amount (Highest)</option>
+          <option value="name">Name (A-Z)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <button class="pill active" data-cat="" onclick="setPill(this, '')">All</button>
+      <button class="pill" data-cat="Merit" onclick="setPill(this, 'Merit')">&#127942; Merit</button>
+      <button class="pill" data-cat="SC/ST" onclick="setPill(this, 'SC/ST')">SC/ST</button>
+      <button class="pill" data-cat="OBC" onclick="setPill(this, 'OBC')">OBC</button>
+      <button class="pill" data-cat="EWS" onclick="setPill(this, 'EWS')">EWS</button>
+      <button class="pill" data-cat="Girls" onclick="setPill(this, 'Girls')">&#128105; Girls</button>
+      <button class="pill" data-cat="Minority" onclick="setPill(this, 'Minority')">Minority</button>
+      <button class="pill" data-cat="Sports" onclick="setPill(this, 'Sports')">&#9917; Sports</button>
+    </div>
+
+    <div id="scholarship-grid" class="scholarship-grid"></div>
+
+    <div id="no-results" class="no-results hidden">
+      <span>&#128533;</span>
+      <p>No scholarships match your filters.</p>
+      <button class="btn-clear" onclick="clearFilters()">Clear Filters</button>
+    </div>
+  </div>
+</main>
+
+<!-- DETAIL MODAL -->
+<div class="modal-overlay hidden" id="detail-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- OFFICIAL PORTALS -->
+<section class="portals-section">
+  <h2>&#127963; Official Scholarship Portals</h2>
+  <div class="portals-grid">
+    <a href="https://scholarships.gov.in" target="_blank" class="portal-card">
+      <span>&#127470;&#127475;</span>
+      <h4>National Scholarship Portal</h4>
+      <p>Central government's one-stop portal for all national scholarships.</p>
+      <span class="portal-link">Visit &rarr;</span>
+    </a>
+    <a href="https://mahadbt.maharashtra.gov.in" target="_blank" class="portal-card">
+      <span>&#127963;</span>
+      <h4>MahaDBT Maharashtra</h4>
+      <p>Maharashtra state scholarships for all categories via DBT.</p>
+      <span class="portal-link">Visit &rarr;</span>
+    </a>
+    <a href="https://www.aicte-india.org" target="_blank" class="portal-card">
+      <span>&#127891;</span>
+      <h4>AICTE Scholarships</h4>
+      <p>Pragati, Saksham, and other AICTE scholarships for technical students.</p>
+      <span class="portal-link">Visit &rarr;</span>
+    </a>
+    <a href="https://online-inspire.gov.in" target="_blank" class="portal-card">
+      <span>&#128300;</span>
+      <h4>INSPIRE - DST</h4>
+      <p>Scholarship for higher education in science and technology.</p>
+      <span class="portal-link">Visit &rarr;</span>
+    </a>
+    <a href="https://www.buddy4study.com" target="_blank" class="portal-card">
+      <span>&#128218;</span>
+      <h4>Buddy4Study</h4>
+      <p>India's largest scholarship search platform with 5000+ listings.</p>
+      <span class="portal-link">Visit &rarr;</span>
+    </a>
+    <a href="https://www.vidyasaarathi.co.in" target="_blank" class="portal-card">
+      <span>&#128161;</span>
+      <h4>Vidya Saarathi</h4>
+      <p>Corporate and private scholarships for meritorious students.</p>
+      <span class="portal-link">Visit &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips-section">
+  <h2>&#128161; Tips to Win Scholarships</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <span class="tip-num">01</span>
+      <h4>Apply Early</h4>
+      <p>Most scholarships have limited seats. Apply as soon as the portal opens - don't wait for the deadline.</p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-num">02</span>
+      <h4>Keep Documents Ready</h4>
+      <p>Income certificate, caste certificate, marksheets, Aadhaar, and bank passbook are needed for most applications.</p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-num">03</span>
+      <h4>Apply to Multiple</h4>
+      <p>You can hold multiple scholarships simultaneously. Apply to all you qualify for to maximise your chances.</p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-num">04</span>
+      <h4>Renew Every Year</h4>
+      <p>Most scholarships require annual renewal. Keep your academic performance up and submit renewal forms on time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2025 Counsellor.AI &middot; <a href="/">Home</a> &middot; <a href="#">Privacy Policy</a></p>
+</footer>
+
+<script src="/js/scholarships.js"></script>
+</body>
+</html>

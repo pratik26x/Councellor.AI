@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PYQs &amp; Study Materials - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/resources.css" />
+</head>
+<body>
+<script src="/js/nav.js"></script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="badge">&#128214; Free Study Resources</span>
+    <h1>PYQs &amp; Study Materials<br /><span>All in One Place</span></h1>
+    <p>Previous year papers, formula sheets, chapter notes, video lectures, and mock tests - everything you need to crack JEE, MHT-CET, and BITSAT. All free.</p>
+    <div class="hero-stats">
+      <div class="stat-pill">&#128221; <strong>30+</strong> PYQ Papers</div>
+      <div class="stat-pill">&#128218; <strong>20+</strong> Study Notes</div>
+      <div class="stat-pill">&#127909; <strong>Video</strong> Lectures</div>
+      <div class="stat-pill">&#127919; <strong>Mock</strong> Tests</div>
+    </div>
+  </div>
+  <div class="hero-cards">
+    <div class="hero-float-card hfc1">&#128221;<span>JEE Main 2024</span></div>
+    <div class="hero-float-card hfc2">&#129518;<span>Maths Formulas</span></div>
+    <div class="hero-float-card hfc3">&#9879;<span>Organic Chemistry</span></div>
+    <div class="hero-float-card hfc4">&#127919;<span>Mock Test</span></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><span id="total-count">-</span><p>Total Resources</p></div>
+  <div class="stat-item"><span id="pyq-count">-</span><p>PYQ Papers</p></div>
+  <div class="stat-item"><span id="notes-count">-</span><p>Notes &amp; Sheets</p></div>
+  <div class="stat-item"><span id="video-count">-</span><p>Video Lectures</p></div>
+  <div class="stat-item"><span id="mock-count">-</span><p>Mock Tests</p></div>
+</div>
+
+<!-- SEARCH BAR -->
+<div class="search-section">
+  <div class="search-box">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="global-search" placeholder="Search by topic, exam, subject... e.g. 'JEE 2024', 'Organic Chemistry', 'Calculus'" oninput="applyFilters()" />
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" style="display:none">&#10005;</button>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="page-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>&#128269; Filter</h3>
+
+    <div class="filter-group">
+      <label>Exam</label>
+      <div class="radio-list" id="exam-filters">
+        <label class="radio-item"><input type="radio" name="exam" value="" checked onchange="applyFilters()" /> All Exams</label>
+        <label class="radio-item"><input type="radio" name="exam" value="MHT-CET" onchange="applyFilters()" /> MHT-CET</label>
+        <label class="radio-item"><input type="radio" name="exam" value="JEE" onchange="applyFilters()" /> JEE Main / Advanced</label>
+        <label class="radio-item"><input type="radio" name="exam" value="BITSAT" onchange="applyFilters()" /> BITSAT</label>
+        <label class="radio-item"><input type="radio" name="exam" value="General" onchange="applyFilters()" /> General</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>Subject</label>
+      <div class="checkbox-list">
+        <label class="checkbox-item"><input type="checkbox" value="Physics" onchange="applyFilters()" /> &#9889; Physics</label>
+        <label class="checkbox-item"><input type="checkbox" value="Chemistry" onchange="applyFilters()" /> &#9879; Chemistry</label>
+        <label class="checkbox-item"><input type="checkbox" value="Mathematics" onchange="applyFilters()" /> &#128290; Mathematics</label>
+        <label class="checkbox-item"><input type="checkbox" value="Biology" onchange="applyFilters()" /> &#127807; Biology</label>
+        <label class="checkbox-item"><input type="checkbox" value="All" onchange="applyFilters()" /> &#128218; All Subjects</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>Resource Type</label>
+      <div class="checkbox-list">
+        <label class="checkbox-item"><input type="checkbox" value="PYQ" onchange="applyFilters()" /> &#128221; PYQ Papers</label>
+        <label class="checkbox-item"><input type="checkbox" value="Notes" onchange="applyFilters()" /> &#128211; Notes</label>
+        <label class="checkbox-item"><input type="checkbox" value="Formula Sheet" onchange="applyFilters()" /> &#128203; Formula Sheets</label>
+        <label class="checkbox-item"><input type="checkbox" value="Video" onchange="applyFilters()" /> &#127909; Video Lectures</label>
+        <label class="checkbox-item"><input type="checkbox" value="Mock Test" onchange="applyFilters()" /> &#127919; Mock Tests</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label>Year (PYQs)</label>
+      <select id="year-filter" onchange="applyFilters()">
+        <option value="">All Years</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2025">2025</option>
+      </select>
+    </div>
+
+    <button class="btn-clear-all" onclick="clearAllFilters()">&#10005; Clear All</button>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main-area">
+    <div class="tab-bar">
+      <button class="tab active" data-type="" onclick="setTab(this,'')">All</button>
+      <button class="tab" data-type="PYQ" onclick="setTab(this,'PYQ')">&#128221; PYQ Papers</button>
+      <button class="tab" data-type="Notes" onclick="setTab(this,'Notes')">&#128211; Notes</button>
+      <button class="tab" data-type="Formula Sheet" onclick="setTab(this,'Formula Sheet')">&#128203; Formula Sheets</button>
+      <button class="tab" data-type="Video" onclick="setTab(this,'Video')">&#127909; Videos</button>
+      <button class="tab" data-type="Mock Test" onclick="setTab(this,'Mock Test')">&#127919; Mock Tests</button>
+    </div>
+
+    <div class="results-bar">
+      <span id="result-count">Loading...</span>
+      <div class="sort-row">
+        <label>Sort:</label>
+        <select id="sort-select" onchange="applyFilters()">
+          <option value="popular">Most Popular</option>
+          <option value="newest">Newest First</option>
+          <option value="az">A - Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="resource-grid" class="resource-grid"></div>
+
+    <div id="no-results" class="no-results hidden">
+      <span>&#128533;</span>
+      <p>No resources match your filters.</p>
+      <button class="btn-clear-all" onclick="clearAllFilters()">Clear Filters</button>
+    </div>
+  </main>
+</div>
+
+<!-- FEATURED CHANNELS -->
+<section class="channels-section">
+  <h2>&#127909; Top Free YouTube Channels for Exam Prep</h2>
+  <div class="channels-grid">
+    <a href="https://www.youtube.com/@PhysicsWallah" target="_blank" class="channel-card">
+      <div class="ch-icon" style="background:#fff3cd;">&#128208;</div>
+      <h4>Physics Wallah</h4>
+      <p>JEE &amp; NEET preparation by Alakh Pandey. Free lectures for all subjects.</p>
+      <span class="ch-tag">JEE &middot; NEET &middot; MHT-CET</span>
+    </a>
+    <a href="https://www.youtube.com/@unacademyJEE" target="_blank" class="channel-card">
+      <div class="ch-icon" style="background:#dbeafe;">&#127942;</div>
+      <h4>Unacademy JEE</h4>
+      <p>Top educators for JEE Main and Advanced preparation.</p>
+      <span class="ch-tag">JEE Main &middot; JEE Advanced</span>
+    </a>
+    <a href="https://www.youtube.com/@VedantuJEE" target="_blank" class="channel-card">
+      <div class="ch-icon" style="background:#d1fae5;">&#9889;</div>
+      <h4>Vedantu JEE</h4>
+      <p>Live classes and recorded lectures for JEE preparation.</p>
+      <span class="ch-tag">JEE &middot; Live Classes</span>
+    </a>
+    <a href="https://www.youtube.com/@KhanAcademyIndia" target="_blank" class="channel-card">
+      <div class="ch-icon" style="background:#ede9fe;">&#127758;</div>
+      <h4>Khan Academy India</h4>
+      <p>Free world-class education for Maths, Science, and more.</p>
+      <span class="ch-tag">Maths &middot; Science &middot; Free</span>
+    </a>
+    <a href="https://www.youtube.com/@MathonGo" target="_blank" class="channel-card">
+      <div class="ch-icon" style="background:#fce7f3;">&#128290;</div>
+      <h4>MathonGo</h4>
+      <p>Mathematics lectures and problem-solving for JEE.</p>
+      <span class="ch-tag">Maths &middot; JEE</span>
+    </a>
+    <a href="https://www.youtube.com/@etoosindia" target="_blank" class="channel-card">
+      <div class="ch-icon" style="background:#ffedd5;">&#128300;</div>
+      <h4>Etoos India</h4>
+      <p>IIT-JEE video lectures by Kota's top faculty.</p>
+      <span class="ch-tag">JEE &middot; Kota Faculty</span>
+    </a>
+  </div>
+</section>
+
+<!-- STUDY PLAN -->
+<section class="plan-section">
+  <div class="plan-inner">
+    <div class="plan-text">
+      <h2>&#128197; Suggested Study Plan</h2>
+      <p>A structured approach to using these resources effectively for your exam preparation.</p>
+    </div>
+    <div class="plan-steps">
+      <div class="plan-step"><span class="step-num">1</span><div><h4>Build Concepts (Month 1-4)</h4><p>Use chapter-wise notes and video lectures to build strong fundamentals in Physics, Chemistry, and Maths.</p></div></div>
+      <div class="plan-step"><span class="step-num">2</span><div><h4>Formula Revision (Month 5-6)</h4><p>Download formula sheets and revise all important formulas. Practice derivations and applications.</p></div></div>
+      <div class="plan-step"><span class="step-num">3</span><div><h4>Solve PYQs (Month 7-9)</h4><p>Solve previous year papers topic-wise first, then full papers under timed conditions.</p></div></div>
+      <div class="plan-step"><span class="step-num">4</span><div><h4>Mock Tests (Month 10-12)</h4><p>Take full-length mock tests weekly. Analyse mistakes and revise weak areas before the exam.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2025 Counsellor.AI &middot; <a href="/">Home</a> &middot; <a href="/pages/scholarships.html">Scholarships</a> &middot; <a href="#">Privacy Policy</a></p>
+</footer>
+
+<!-- DETAIL MODAL -->
+<div class="modal-overlay hidden" id="detail-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="/js/resources.js"></script>
+</body>
+</html>

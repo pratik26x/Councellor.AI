@@ -1,0 +1,199 @@
+/* nav.css — shared navbar styles for all pages */
+.shared-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 40px;
+  height: 62px;
+  background: #1a1a2e;
+  box-shadow: 0 2px 16px rgba(0,0,0,.25);
+  font-family: 'Inter', 'Space Grotesk', sans-serif;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  flex-shrink: 0;
+  margin-right: 32px;
+}
+.nav-brand span { font-size: 24px; }
+.nav-brand strong { display: block; font-size: 15px; font-weight: 700; line-height: 1.2; }
+.nav-brand small  { display: block; font-size: 10px; color: rgba(255,255,255,.5); }
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-menu > li { position: relative; }
+
+.nav-menu a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+.nav-menu a:hover { background: rgba(255,255,255,.1); color: #fff; }
+.nav-menu a.active { background: rgba(255,191,35,.15); color: #FFBF23; font-weight: 700; }
+
+/* Dropdown */
+.has-dropdown { position: relative; }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #16213e;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  list-style: none;
+  z-index: 100;
+}
+.has-dropdown:hover .dropdown { display: block; }
+.dropdown li a { padding: 8px 12px; border-radius: 6px; font-size: 13px; }
+
+/* Login button */
+.nav-login-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 7px 18px;
+  background: #FFBF23;
+  color: #1a1a2e;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.nav-login-btn:hover { background: #e6a800; transform: translateY(-1px); }
+
+/* Hamburger — hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 4px 8px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .shared-navbar { padding: 0 20px; flex-wrap: wrap; height: auto; min-height: 56px; }
+  .nav-toggle { display: block; }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 0 12px;
+    gap: 2px;
+    order: 3;
+  }
+  .shared-navbar.open .nav-menu { display: flex; }
+  .nav-login-btn { order: 2; margin-left: 0; }
+  .dropdown { position: static; box-shadow: none; border: none; background: rgba(255,255,255,.05); }
+  .has-dropdown:hover .dropdown { display: none; }
+  .has-dropdown.open .dropdown { display: block; }
+}
+
+/* ── Logged-in user area ── */
+.nav-user-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Clickable user chip → goes to profile */
+.nav-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 24px;
+  padding: 4px 14px 4px 5px;
+  text-decoration: none;
+  transition: background .2s;
+  color: #fff;
+}
+.nav-user-chip:hover { background: rgba(255,255,255,.16); }
+
+.nav-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFBF23;
+  color: #1a1a2e;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+}
+
+/* Logout button — always visible */
+.nav-logout-btn {
+  padding: 7px 16px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.35);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+  cursor: pointer;
+  transition: all .2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.nav-logout-btn:hover {
+  background: rgba(239,68,68,.2);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .nav-user-area { order: 2; margin-left: 0; }
+  .nav-login-btn { order: 2; margin-left: 0; }
+}
+
+/* ── Body padding reset for pages using nav.js ── */
+/* Ensures the injected navbar doesn't break flex-body layouts */
+body > .shared-navbar + * {
+  /* First element after navbar gets no extra top margin needed
+     since navbar is sticky (not fixed) */
+}
+
+/* Predictor pages have body display:flex — fix alignment */
+body.predictor-body {
+  display: block !important;
+}

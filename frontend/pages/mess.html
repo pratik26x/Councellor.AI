@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mess &amp; Tiffin Services - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/mess.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+
+  <!-- HERO -->
+  <section class="mess-hero">
+    <div class="mess-hero-text">
+      <span class="badge">&#127857; Mess &amp; Tiffin Finder</span>
+      <h1>Never Skip a<br /><span>Meal Again</span></h1>
+      <p>Find affordable mess subscriptions, daily tiffin delivery, and canteen services near your college or PG. Home-cooked food at student-friendly prices.</p>
+      <div class="hero-pills">
+        <span class="pill-stat">&#127857; <strong>30+</strong> Services</span>
+        <span class="pill-stat">&#127869; <strong>Veg &amp; Non-Veg</strong></span>
+        <span class="pill-stat">&#128176; <strong>From Rs.1,500/mo</strong></span>
+      </div>
+    </div>
+    <div class="mess-hero-cards">
+      <div class="hero-float">&#127857;<p>Mess</p></div>
+      <div class="hero-float">&#127871;<p>Tiffin</p></div>
+      <div class="hero-float">&#9749;<p>Canteen</p></div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <div class="filter-field">
+        <label>City</label>
+        <input type="text" id="f-city" placeholder="e.g. Pune, Mumbai" />
+      </div>
+      <div class="filter-field">
+        <label>Type</label>
+        <select id="f-type">
+          <option value="">All Types</option>
+          <option value="Mess">Mess</option>
+          <option value="Tiffin">Tiffin</option>
+          <option value="Canteen">Canteen</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label>Cuisine</label>
+        <select id="f-cuisine">
+          <option value="">All Cuisines</option>
+          <option value="Maharashtrian">Maharashtrian</option>
+          <option value="North Indian">North Indian</option>
+          <option value="South Indian">South Indian</option>
+          <option value="Gujarati">Gujarati</option>
+          <option value="Multi-cuisine">Multi-cuisine</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label>Max Monthly Cost (Rs.)</label>
+        <input type="number" id="f-cost" placeholder="e.g. 3000" />
+      </div>
+      <button class="btn-search" onclick="searchMess()">&#128269; Search</button>
+      <button class="btn-reset" onclick="resetFilters()">Reset</button>
+    </div>
+  </div>
+
+  <!-- SORT + COUNT BAR -->
+  <div class="results-bar">
+    <span id="mess-count">Loading...</span>
+    <div class="sort-row">
+      <label>Sort by:</label>
+      <select id="mess-sort" onchange="sortAndRender()">
+        <option value="cost-asc">Cost: Low to High</option>
+        <option value="cost-desc">Cost: High to Low</option>
+        <option value="az">Name A-Z</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- LISTINGS GRID -->
+  <div class="mess-grid" id="mess-grid">
+    <div class="spinner"><div class="spinner-ring"></div><p>Loading services...</p></div>
+  </div>
+
+  <!-- ADD LISTING CTA -->
+  <div class="add-cta">
+    <div class="add-cta-inner">
+      <div>
+        <h3>&#127869; Run a Mess or Tiffin Service?</h3>
+        <p>List your service and reach thousands of hungry students near colleges. Free listing.</p>
+      </div>
+      <button class="btn-add" onclick="openModal()">+ List Your Service</button>
+    </div>
+  </div>
+
+  <!-- MEAL PLAN GUIDE -->
+  <section class="guide-section">
+    <h2>&#128203; How to Choose the Right Meal Plan</h2>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <span class="guide-num">01</span>
+        <h4>Mess Subscription</h4>
+        <p>Best for students who want 2-3 meals daily at a fixed monthly cost. Usually Rs.2,000&ndash;Rs.4,000/month. Ideal if you stay in a PG without meals.</p>
+        <span class="guide-tag">Rs.2,000&ndash;4,000/mo</span>
+      </div>
+      <div class="guide-card">
+        <span class="guide-num">02</span>
+        <h4>Tiffin Delivery</h4>
+        <p>Home-cooked food delivered to your doorstep. Great for students in flats. Usually lunch + dinner. Rs.1,500&ndash;Rs.2,500/month.</p>
+        <span class="guide-tag">Rs.1,500&ndash;2,500/mo</span>
+      </div>
+      <div class="guide-card">
+        <span class="guide-num">03</span>
+        <h4>College Canteen</h4>
+        <p>On-campus canteen for quick meals between classes. Pay per meal, no subscription needed. Most affordable option.</p>
+        <span class="guide-tag">Pay per meal</span>
+      </div>
+      <div class="guide-card">
+        <span class="guide-num">04</span>
+        <h4>Combo Plan</h4>
+        <p>Many services offer lunch-only or dinner-only plans. Mix and match to save money while getting home-cooked food.</p>
+        <span class="guide-tag">Flexible</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD SERVICE MODAL -->
+  <div class="modal-overlay hidden" id="add-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      <h3>&#127857; List Your Mess / Tiffin Service</h3>
+      <p class="modal-sub">Fill in the details below. We'll review and publish within 24 hours.</p>
+      <form id="add-form" onsubmit="submitListing(event)">
+        <div class="modal-grid">
+          <div class="form-group">
+            <label>Service Name *</label>
+            <input name="name" placeholder="e.g. Annapurna Mess" required />
+          </div>
+          <div class="form-group">
+            <label>Type *</label>
+            <select name="type" required>
+              <option value="Mess">Mess</option>
+              <option value="Tiffin">Tiffin</option>
+              <option value="Canteen">Canteen</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>City *</label>
+            <input name="city" placeholder="Pune" required />
+          </div>
+          <div class="form-group">
+            <label>Area / Locality</label>
+            <input name="area" placeholder="Kothrud" />
+          </div>
+          <div class="form-group">
+            <label>Monthly Cost (Rs.)</label>
+            <input type="number" name="monthly_cost" placeholder="2500" />
+          </div>
+          <div class="form-group">
+            <label>Contact Number *</label>
+            <input name="contact" placeholder="9876543210" required />
+          </div>
+          <div class="form-group">
+            <label>Cuisine Type</label>
+            <input name="cuisine" placeholder="Maharashtrian, North Indian, Veg" />
+          </div>
+          <div class="form-group">
+            <label>Timings</label>
+            <input name="timing" placeholder="7am-10am, 12pm-3pm, 7pm-10pm" />
+          </div>
+          <div class="form-group full-width">
+            <label>Description</label>
+            <textarea name="description" rows="3" placeholder="Describe your service, menu highlights, special offers..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">Submit Service</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal-overlay hidden" id="detail-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeDetailModal()">&#10005;</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>&copy; 2025 Counsellor.AI &middot; <a href="/">Home</a> &middot; <a href="/pages/accommodation.html">Accommodation</a> &middot; <a href="/pages/scholarships.html">Scholarships</a></p>
+  </footer>
+
+  <script src="/js/mess.js"></script>
+</body>
+</html>

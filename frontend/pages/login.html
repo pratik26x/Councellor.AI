@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+
+<div class="auth-page">
+
+  <!-- LEFT PANEL -->
+  <div class="auth-left">
+    <a href="/" class="auth-brand">
+      <span>&#127891;</span>
+      <div>
+        <strong>Counsellor.AI</strong>
+        <small>A Rising Education Initiative</small>
+      </div>
+    </a>
+
+    <div class="auth-card">
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Log In</button>
+        <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Create Account</button>
+      </div>
+
+      <!-- ERROR / SUCCESS BANNER -->
+      <div class="auth-banner hidden" id="auth-banner"></div>
+
+      <!-- ── LOGIN FORM ── -->
+      <form class="auth-form" id="form-login" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="login-identifier">Email or Username</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#9993;</span>
+            <input type="text" id="login-identifier" placeholder="Enter your email or username" required autocomplete="username" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#128274;</span>
+            <input type="password" id="login-password" placeholder="Enter your password" required autocomplete="current-password" />
+            <button type="button" class="toggle-pw" onclick="togglePassword('login-password', this)">&#128065;</button>
+          </div>
+        </div>
+        <button type="submit" class="btn-auth" id="btn-login">
+          <span class="btn-text">Log In</span>
+          <span class="btn-spinner hidden">&#9696;</span>
+        </button>
+        <p class="auth-switch">Don't have an account? <a href="#" onclick="switchTab('register')">Create one free</a></p>
+      </form>
+
+      <!-- ── REGISTER FORM ── -->
+      <form class="auth-form hidden" id="form-register" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#128100;</span>
+            <input type="text" id="reg-name" placeholder="Your full name" required autocomplete="name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email Address</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#9993;</span>
+            <input type="email" id="reg-email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-username">Username</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#64;</span>
+            <input type="text" id="reg-username" placeholder="Choose a username" required autocomplete="username"
+              oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9_]/g,'')" />
+          </div>
+          <small class="field-hint">Lowercase letters, numbers, underscores only</small>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#128274;</span>
+            <input type="password" id="reg-password" placeholder="Min. 6 characters" required autocomplete="new-password"
+              oninput="checkPasswordStrength(this.value)" />
+            <button type="button" class="toggle-pw" onclick="togglePassword('reg-password', this)">&#128065;</button>
+          </div>
+          <div class="pw-strength" id="pw-strength">
+            <div class="pw-bar" id="pw-bar"></div>
+          </div>
+          <small class="field-hint" id="pw-hint"></small>
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm">Confirm Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">&#128274;</span>
+            <input type="password" id="reg-confirm" placeholder="Repeat your password" required autocomplete="new-password" />
+          </div>
+        </div>
+        <button type="submit" class="btn-auth" id="btn-register">
+          <span class="btn-text">Create Account</span>
+          <span class="btn-spinner hidden">&#9696;</span>
+        </button>
+        <p class="auth-switch">Already have an account? <a href="#" onclick="switchTab('login')">Log in</a></p>
+      </form>
+
+    </div>
+
+    <p class="auth-footer">&copy; 2026 Counsellor.AI &middot; A <strong>Rising Education</strong> Initiative</p>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-right-inner">
+      <div class="auth-illustration">&#127891;</div>
+      <h2>Your Complete Guide to<br />Engineering Admissions</h2>
+      <p>College predictions, scholarships, study materials, PG accommodations &mdash; everything a student needs.</p>
+      <div class="auth-features">
+        <div class="auth-feature">&#127919; College Predictor for JEE, MHT-CET, BITSAT</div>
+        <div class="auth-feature">&#127941; 100+ Scholarships with deadlines</div>
+        <div class="auth-feature">&#128214; Free PYQs &amp; Study Materials</div>
+        <div class="auth-feature">&#127968; PG &amp; Mess Finder near colleges</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const API = 'http://127.0.0.1:5000/api/auth';
+
+/* ── Tab switch ── */
+function switchTab(tab) {
+  document.getElementById('form-login').classList.toggle('hidden', tab !== 'login');
+  document.getElementById('form-register').classList.toggle('hidden', tab !== 'register');
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+  hideBanner();
+}
+
+/* ── Login ── */
+async function handleLogin(e) {
+  e.preventDefault();
+  const identifier = document.getElementById('login-identifier').value.trim();
+  const password   = document.getElementById('login-password').value;
+  setLoading('btn-login', true);
+  hideBanner();
+
+  try {
+    const res  = await fetch(`${API}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ identifier, password })
+    });
+    const data = await res.json();
+
+    if (!res.ok) { showBanner(data.error || 'Login failed.', 'error'); return; }
+
+    // Save token and user info
+    localStorage.setItem('auth_token', data.token);
+    localStorage.setItem('auth_user',  JSON.stringify(data.user));
+
+    showBanner(`Welcome back, ${data.user.full_name}! Redirecting...`, 'success');
+    setTimeout(() => { window.location.replace('/'); }, 1000);
+  } catch {
+    showBanner('Could not connect to server. Make sure it is running.', 'error');
+  } finally {
+    setLoading('btn-login', false);
+  }
+}
+
+/* ── Register ── */
+async function handleRegister(e) {
+  e.preventDefault();
+  const full_name = document.getElementById('reg-name').value.trim();
+  const email     = document.getElementById('reg-email').value.trim();
+  const username  = document.getElementById('reg-username').value.trim();
+  const password  = document.getElementById('reg-password').value;
+  const confirm   = document.getElementById('reg-confirm').value;
+
+  if (password !== confirm) { showBanner('Passwords do not match.', 'error'); return; }
+  if (password.length < 6)  { showBanner('Password must be at least 6 characters.', 'error'); return; }
+
+  setLoading('btn-register', true);
+  hideBanner();
+
+  try {
+    const res  = await fetch(`${API}/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ full_name, email, username, password })
+    });
+    const data = await res.json();
+
+    if (!res.ok) { showBanner(data.error || 'Registration failed.', 'error'); return; }
+
+    localStorage.setItem('auth_token', data.token);
+    localStorage.setItem('auth_user',  JSON.stringify(data.user));
+
+    showBanner(`Account created! Welcome, ${data.user.full_name}! Redirecting...`, 'success');
+    setTimeout(() => { window.location.replace('/'); }, 1200);
+  } catch {
+    showBanner('Could not connect to server. Make sure it is running.', 'error');
+  } finally {
+    setLoading('btn-register', false);
+  }
+}
+
+/* ── Helpers ── */
+function showBanner(msg, type) {
+  const b = document.getElementById('auth-banner');
+  b.textContent = msg;
+  b.className = `auth-banner ${type}`;
+}
+function hideBanner() {
+  document.getElementById('auth-banner').className = 'auth-banner hidden';
+}
+function setLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  btn.querySelector('.btn-text').classList.toggle('hidden', loading);
+  btn.querySelector('.btn-spinner').classList.toggle('hidden', !loading);
+  btn.disabled = loading;
+}
+function togglePassword(inputId, btn) {
+  const inp = document.getElementById(inputId);
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+  btn.textContent = inp.type === 'password' ? '\u{1F441}' : '\u{1F648}';
+}
+function checkPasswordStrength(pw) {
+  const bar  = document.getElementById('pw-bar');
+  const hint = document.getElementById('pw-hint');
+  let score = 0;
+  if (pw.length >= 6)  score++;
+  if (pw.length >= 10) score++;
+  if (/[A-Z]/.test(pw)) score++;
+  if (/[0-9]/.test(pw)) score++;
+  if (/[^A-Za-z0-9]/.test(pw)) score++;
+  const levels = ['', 'Very Weak', 'Weak', 'Fair', 'Strong', 'Very Strong'];
+  const colors = ['', '#ef4444', '#f97316', '#eab308', '#22c55e', '#10b981'];
+  bar.style.width  = `${score * 20}%`;
+  bar.style.background = colors[score] || '#e5e7eb';
+  hint.textContent = levels[score] || '';
+  hint.style.color = colors[score] || '';
+}
+
+/* ── If already logged in, show a message instead of redirecting ── */
+(function() {
+  const token = localStorage.getItem('auth_token');
+  const user  = localStorage.getItem('auth_user');
+  if (token && user) {
+    try {
+      const u = JSON.parse(user);
+      // Show already-logged-in banner instead of redirecting
+      const banner = document.getElementById('auth-banner');
+      if (banner) {
+        banner.textContent = 'You are already logged in as ' + u.full_name + '. ';
+        banner.className = 'auth-banner success';
+        const link = document.createElement('a');
+        link.href = '/';
+        link.textContent = 'Go to Homepage';
+        link.style.fontWeight = '700';
+        link.style.marginLeft = '4px';
+        banner.appendChild(link);
+      }
+    } catch(e) {}
+  }
+})();
+</script>
+</body>
+</html>

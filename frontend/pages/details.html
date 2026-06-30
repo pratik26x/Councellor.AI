@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Details - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/details.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+
+  <div class="details-page">
+    <div class="details-header">
+      <span class="details-badge">&#128203; Student Profile</span>
+      <h1>Complete Your Student Profile</h1>
+      <p>Help us personalise your college recommendations and scholarship matches.</p>
+    </div>
+
+    <div class="form-container" id="form-container">
+
+      <!-- Banner -->
+      <div class="form-banner hidden" id="form-banner"></div>
+
+      <!-- SECTION 1 -->
+      <section class="form-section">
+        <h2>&#128100; Basic Personal Details</h2>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Full Name *</label>
+            <input type="text" id="full-name" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Date of Birth *</label>
+            <input type="date" id="dob" required />
+          </div>
+          <div class="form-group">
+            <label>Gender *</label>
+            <select id="gender" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="+91 9876543210" required />
+          </div>
+          <div class="form-group full">
+            <label>Current Address *</label>
+            <textarea id="current-address" rows="2" placeholder="City, State, PIN Code" required></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Permanent Address <span class="optional">(if different)</span></label>
+            <textarea id="permanent-address" rows="2" placeholder="Leave blank if same as above"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="form-section">
+        <h2>&#127919; Interests &amp; Activities</h2>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Hobbies / Extracurricular Interests</label>
+            <input type="text" id="hobbies" placeholder="e.g. Painting, Music, Cricket" />
+          </div>
+          <div class="form-group full">
+            <label>Clubs / Organisations</label>
+            <input type="text" id="clubs" placeholder="e.g. Coding Club, Drama Club" />
+          </div>
+          <div class="form-group full">
+            <label>Volunteer Work / Leadership Roles</label>
+            <textarea id="volunteer" rows="2" placeholder="Describe any volunteer work or leadership roles"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="form-section">
+        <h2>&#128187; Technical Skills</h2>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Programming Languages Known</label>
+            <input type="text" id="skills" placeholder="e.g. Python, JavaScript, C++" />
+          </div>
+          <div class="form-group full">
+            <label>Preferred Platforms / Tools</label>
+            <input type="text" id="tools" placeholder="e.g. VS Code, PyCharm, Figma" />
+          </div>
+          <div class="form-group">
+            <label>Specialisations</label>
+            <input type="text" id="specializations" placeholder="e.g. Machine Learning, Web Dev" />
+          </div>
+          <div class="form-group">
+            <label>Certifications</label>
+            <input type="text" id="certifications" placeholder="e.g. AWS, Coursera, NPTEL" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="form-section">
+        <h2>&#128640; Career &amp; Future Plans</h2>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Career Goals</label>
+            <textarea id="career-goals" rows="3" placeholder="Describe your short and long-term career goals"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Preferred Industries</label>
+            <input type="text" id="industries" placeholder="e.g. IT, Healthcare, Finance" />
+          </div>
+          <div class="form-group">
+            <label>Internships / Work Experience</label>
+            <input type="text" id="experience" placeholder="e.g. 3-month internship at XYZ" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SUBMIT -->
+      <div class="form-actions">
+        <button type="button" class="btn-submit" id="btn-submit" onclick="submitDetails()">
+          <span id="btn-text">Save Profile</span>
+        </button>
+        <a href="/pages/profile.html" class="btn-cancel">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="details-footer">
+    <p>&copy; 2026 Counsellor.AI &middot; A <strong>Rising Education</strong> Initiative</p>
+  </footer>
+
+  <script>
+  const API = 'http://127.0.0.1:5000/api/student';
+
+  /* ── Auth guard ── */
+  if (!localStorage.getItem('auth_token')) {
+    window.location.replace('/pages/login.html');
+  }
+
+  /* ── Pre-fill email from logged-in user ── */
+  (function() {
+    try {
+      const u = JSON.parse(localStorage.getItem('auth_user') || 'null');
+      if (u) {
+        document.getElementById('full-name').value = u.full_name || '';
+        document.getElementById('email').value     = u.email || '';
+      }
+    } catch(e) {}
+  })();
+
+  /* ── Submit ── */
+  async function submitDetails() {
+    const btn  = document.getElementById('btn-submit');
+    const text = document.getElementById('btn-text');
+
+    const data = {
+      full_name:         document.getElementById('full-name').value.trim(),
+      dob:               document.getElementById('dob').value,
+      gender:            document.getElementById('gender').value,
+      email:             document.getElementById('email').value.trim(),
+      phone:             document.getElementById('phone').value.trim(),
+      current_address:   document.getElementById('current-address').value.trim(),
+      permanent_address: document.getElementById('permanent-address').value.trim(),
+      hobbies:           document.getElementById('hobbies').value.trim(),
+      clubs:             document.getElementById('clubs').value.trim(),
+      volunteer_work:    document.getElementById('volunteer').value.trim(),
+      languages_known:   document.getElementById('skills').value.trim(),
+      platforms:         document.getElementById('tools').value.trim(),
+      specializations:   document.getElementById('specializations').value.trim(),
+      certifications:    document.getElementById('certifications').value.trim(),
+      career_goals:      document.getElementById('career-goals').value.trim(),
+      preferred_industries: document.getElementById('industries').value.trim(),
+      internships:       document.getElementById('experience').value.trim(),
+    };
+
+    if (!data.full_name || !data.email || !data.phone) {
+      showBanner('Please fill in all required fields (Name, Email, Phone).', 'error');
+      return;
+    }
+
+    btn.disabled = true;
+    text.textContent = 'Saving...';
+
+    try {
+      const res  = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const resp = await res.json();
+
+      if (res.ok) {
+        showBanner('Profile saved successfully! Redirecting...', 'success');
+        setTimeout(() => window.location.replace('/pages/profile.html'), 1500);
+      } else {
+        showBanner(resp.message || 'Could not save profile. Try again.', 'error');
+      }
+    } catch(e) {
+      showBanner('Server error. Make sure the server is running.', 'error');
+    } finally {
+      btn.disabled = false;
+      text.textContent = 'Save Profile';
+    }
+  }
+
+  function showBanner(msg, type) {
+    const b = document.getElementById('form-banner');
+    b.textContent = msg;
+    b.className = 'form-banner ' + type;
+    b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  </script>
+</body>
+</html>

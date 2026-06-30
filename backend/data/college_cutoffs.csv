@@ -1,0 +1,213 @@
+College Name,Branch Name,Cutoff Rank,City,OPEN Percentile,SC Percentile,ST Percentile,NT1 Percentile,OBC Percentile,EWS Percentile,TWFS Percentile
+COEP Technological University,Computer Engineering,151,Pune,99.94,99.21,96.47,99.83,99.86,99.88,99.95
+Veermata Jijabai Technological Institute (VJTI),Computer Engineering,99,Mumbai,99.91,99.41,97.46,99.72,99.80,99.83,99.88
+Veermata Jijabai Technological Institute (VJTI),Information Technology,243,Mumbai,99.87,99.06,95.13,99.49,99.75,99.76,99.85
+COEP Technological University,Electronics and Telecommunication Engineering,346,Pune,99.83,98.50,95.39,99.51,99.73,99.58,99.74
+Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology,Computer Engineering,435,Mumbai,99.79,97.78,90.09,99.26,99.43,99.25,99.61
+Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology,Computer Science and Engineering,630,Mumbai,99.71,97.69,91.33,98.90,99.37,99.18,99.62
+Veermata Jijabai Technological Institute (VJTI),Electronics and Telecommunication Engineering,669,Mumbai,99.69,98.07,93.70,98.99,99.54,99.48,99.59
+Pune Institute of Computer Technology (PICT),Computer Engineering,706,Pune,99.67,97.75,92.77,99.01,99.55,99.55,99.73
+COEP Technological University,Robotics and Artificial Intelligence,797,Pune,99.64,97.27,91.13,,99.50,99.50,99.67
+COEP Technological University,Electrical Engineering,1044,Pune,99.55,97.78,92.83,99.00,99.25,99.15,99.21
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Computer Engineering,1080,Mumbai,99.54,,,,,99.33,
+Institute of Chemical Technology (ICT),Chemical Engineering,1146,Mumbai,99.51,94.16,90.57,98.04,98.36,98.66,99.43
+Veermata Jijabai Technological Institute (VJTI),Electronics Engineering,1136,Mumbai,99.51,97.16,88.61,98.29,99.36,98.27,99.32
+Pune Institute of Computer Technology (PICT),Information Technology,1290,Pune,99.46,96.50,89.39,98.24,99.38,99.40,99.56
+Walchand College of Engineering,Computer Science and Engineering,1301,Sangli,99.45,97.50,91.64,98.76,99.34,99.41,99.62
+Pune Institute of Computer Technology (PICT),Artificial Intelligence and Data Science,1406,Pune,99.41,96.27,87.48,,99.29,99.33,99.48
+Veermata Jijabai Technological Institute (VJTI),Electrical Engineering,1566,Mumbai,99.35,96.39,87.22,98.24,98.95,98.76,98.89
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Artificial Intelligence and Machine Learning,1625,Mumbai,99.32,,,,,98.90,
+Walchand College of Engineering,Information Technology,1716,Sangli,99.29,96.98,88.79,98.66,99.18,99.23,99.46
+COEP Technological University,Instrumentation and Control Engineering,1775,Pune,99.27,97.11,88.03,,99.03,98.84,98.88
+
+Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology,Electronics and Telecommunication Engineering,3215,Mumbai,99.24,96.05,84.43,97.91,98.79,99.06,99.31
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology,Computer Engineering,6273,Pune,99.23,97.12,88.28,98.19,99.12,,99.14
+COEP Technological University,Mechanical Engineering,6006,Pune,99.19,95.90,86.83,98.50,98.76,98.50,98.88
+Pune Institute of Computer Technology,Electronics and Computer Engineering,6271,Pune,99.15,95.07,79.80,98.18,99.06,99.11,99.32
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Information Technology,3199,Mumbai,99.10,,99.11,,,,
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Artificial Intelligence and Data Science,3199,Mumbai,99.08,,98.85,,,,
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Computer Science and Engineering (Data Science),3199,Mumbai,99.03,,98.94,,,,
+Thadomal Shahani Engineering College,Computer Engineering,3182,Mumbai,99.02,,98.73,,,,
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Information Technology,6273,Pune,99.01,96.44,86.25,97.72,98.93,99.14,99.10
+Pune Institute of Computer Technology,Electronics and Telecommunication Engg,6271,Pune,98.96,93.99,61.43,97.49,98.45,98.79,99.10
+Institute of Chemical Technology,Pharmaceuticals Chemistry and Technology,3036,Mumbai,98.94,91.71,87.37,87.37,97.51,96.65,98.17
+Institute of Chemical Technology,Polymer Engineering and Technology,3036,Mumbai,98.88,89.35,68.38,98.33,97.26,98.15,98.39
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology,Computer Science and Engineering(Artificial Intelligence and Machine Learning),6273,Pune,98.85,95.13,89.35,98.29,98.72,98.94,98.85
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain Technology),3199,Mumbai,98.85,93.36,,,,,
+Pimpri Chinchwad Education Trust Pimpri Chinchwad College of Engineering,Computer Engineering,6175,Pune,98.80,96.71,85.34,97.89,98.76,98.67,99.10
+Thadomal Shahani Engineering College,Information Technology,3182,Mumbai,98.73,98.56,,,,,
+Walchand College of Engineering,Electronics Engineering,6007,Sangli,98.67,94.62,86.05,97.52,98.42,98.66,98.90
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology,Computer Science and Engineering(Artificial Intelligence),6273,Pune,98.66,95.67,85.92,98.19,98.49,98.85,99.10
+Pimpri Chinchwad Education Trust Pimpri Chinchwad College of Engineering,Information Technology,6175,Pune,98.59,96.02,85.14,97.66,98.47,98.48,99.10
+Thadomal Shahani Engineering College,Artificial Intelligence and Data Science,3182,Mumbai,98.52,98.48,,,,,
+Institute of Chemical Technology,Food Engineering and Technology,3036,Mumbai,98.50,94.03,71.35,96.71,96.59,97.57,98.17
+Sardar Patel College of Engineering,Electrical Engineering,3014,Mumbai,98.48,92.66,73.27,96.03,97.32,97.55,98.20
+Pimpri Chinchwad Education Trust Pimpri Chinchwad College of Engineering,Computer Science and Engineering(Artificial Intelligence and Machine Learning),6175,Pune,98.47,95.12,81.03,97.57,98.29,98.19,98.50
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology,Artificial Intelligence and Data Science,6273,Pune,98.45,94.36,78.71,97.51,98.29,98.70,98.29
+Sardar Patel College of Engineering,Mechanical Engineering,3014,Mumbai,98.42,92.14,77.41,95.06,96.71,96.39,98.20
+Institute of Chemical Technology,Surface Coating Technology,3036,Mumbai,98.39,91.37,,,96.02,93.06,96.95
+Pimpri Chinchwad Education Trust Pimpri Chinchwad College of Engineering,Computer Engineering,6175,Pune,98.31,95.27,80.62,95.50,98.25,98.27,98.25
+Vivekanand Education Society's Institute of Technology,Computer Engineering,3185,Mumbai,98.28,93.31,,,98.52,98.52,98.52
+
+
+Fr. Conceicao Rodrigues College of Engineering,Computer Engineering,3184,Mumbai,98.27,,,,,,98.18
+K J Somaiya Institute of Technology,Computer Engineering,3209,Mumbai,98.23,,,,,,98.81
+COEP Technological University,Civil Engineering,6006,Pune,98.19,94.32,91.66,97.38,97.86,97.69,98.25
+COEP Technological University,Manufacturing Science and Engineering,6006,Pune,98.17,94.04,73.25,93.29,97.49,97.27,98.07
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Electronics and Telecommunication,6273,Pune,98.07,92.67,63.69,96.93,97.75,,98.21
+Institute of Chemical Technology,Oil Oleochemicals and Surfactants Technology,3036,Mumbai,97.93,92.28,69.65,,95.62,95.44,97.66
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Electronics and Telecommunication Engineering,3199,Mumbai,97.88,,,,97.38,,
+Veermata Jijabai Technological Institute(VJTI),Civil Engineering,3012,Mumbai,97.84,94.38,81.03,,96.50,97.04,97.72
+Pune Vidyarthi Griha's College of Engineering and Technology and G K Pate(Wani),Computer Engineering,6274,Pune,97.78,93.63,76.61,87.93,97.55,97.88,98.24
+Walchand College of Engineering,Electrical Engineering,6007,Sangli,97.75,93.10,61.63,97.32,97.02,98.14,98.24
+Government College of Engineering, Computer Science and Engineering,2008,Aurangabad,97.72,95.10,84.74,,97.38,97.78,98.39
+Fr. Conceicao Rodrigues College of Engineering,Artificial Intelligence and Data Science,3184,Mumbai,97.68,,,,97.46
+Thakur College of Engineering and Technology,Computer Engineering,3176,Mumbai,97.56,,,,98.03,,
+Walchand College of Engineering,Mechanical Engineering,6007,Sangli,97.52,93.10,58.87,,96.50,97.53,98.15
+Vivekanand Education Society's Institute of Technology,Information Technology,3185,Mumbai,97.52,,,,98.05,,
+Veermata Jijabai Technological Institute(VJTI),Production Engineering ,3012,Mumbai,97.51,90.77,51.05,95.58,96.23,96.12,96.50
+Thadomal Shahani Engineering College,Electronics and Telecommunication Engg,3182,Mumbai,97.49,,,,96.75
+COEP Technological University,Metallurgy and Material Technology,6006,Pune,97.45,92.93,65.32,91.71,96.07,96.21,96.98
+Agnel Charities' FR. C. Rodrigues Institute of Technology,Computer Engineering,3197,Navi Mumbai,97.38,,,,,,97.74
+K J Somaiya Institute of Technology,Information Technology,3209,Mumbai,97.38,,,,98.03
+Government College of Engineering,Computer Science and Engineering,1002,Amravati,97.36,94.04,82.31,94.68,97.04,95.97,97.37
+Dr. D. Y. Patil Pratishthan's D.Y. Patil College of Engineering Akurdi,Computer Engineering,6272,Pune,97.33,92.11,74.46,96.27,97.00,97.25,98.10
+Government College of Engineering,Information Technology,6005,Karad,97.33,91.64,83.40,95.50,96.27,97.81,98.07
+Pune Vidyarthi Griha's College of Engineering and Technology and G K Pate(Wani),Information Technology,6274,Pune,97.33,92.14,68.81,93.81,96.98,97.36,97.96
+Pimpri Chinchwad Education Trust Pimpri Chinchwad College of Engineering,Electronics and Telecommunication Engg,6175,Pune,97.25,92.08,48.05,96.06,96.75,,97.86
+Vivekanand Education Society's Institute of Technology,Artificial Intelligence and Data Science,3185,Mumbai,97.21,,,,97.52
+
+Vidyalankar Institute of Technology,Computer Engineering,3139,Mumbai,97.14,94.68,81.11,95.39,96.64,,98.25
+Gondia Education Society's Manoharbhai Patel Institute Of Engineering & Technology,Computer Engineering,4302,Bhandara,96.50,36.02,,,38.99,5.89,71.40
+Agnel Charities' FR. C. Rodrigues Institute of Technology,Information Technology,3209,Mumbai,96.91,,,,,,97.51
+K J Somaiya Institute of Technology,Artificial Intelligence and Data Science,3208,Mumbai,96.87,,,,,,97.32
+Jaywant Shikshan Prasarak Mandal's Rajarshi Shahu College of Engineering,Computer Engineering,6141,Pune,96.87,92.22,71.35,94.61,96.59,,
+Pimpri Chinchwad Education Trust's Pimpri Chinchwad College of Engineering and Research ,Computer Engineering,6822,Pune,96.83,89.69,60.75,93.04,95.84,96.66,97.69
+All India Shri Shivaji Memorial Society's College of Engineering,Computer Engineering,6278,Pune,96.59,90.49,73.02,93.45,96.14,,97.48
+Thakur College of Engineering and Technology,Information Technology,3176,Mumbai,96.39,,,,,97.20
+Thakur College of Engineering and Technology,Artificial Intelligence and Machine Learning,3176,Mumbai,96.34,,,,,,96.54
+Pune Vidyarthi Griha's College of Engineering and Technology and G K Pate(Wani),Artificial Intelligence and Data Science,6274,Pune,96.32,89.95,58.13,95.76,,96.37,96.98
+Institute of Chemical Technology,Dyestuff Technology,2008,Mumbai,96.28,84.46,94.20,,,94.03,94.37
+All India Shri Shivaji Memorial Society's Institute of Information Technology,Information Technology,6282,Pune,96.27,90.99,81.23,94.24,95.92,96.02,97.08
+All India Shri Shivaji Memorial Society's Institute of Information Technology,Computer Engineering,6282,Pune,96.27,90.99,81.23,94.24,95.92,96.27,97.38
+Vidyalankar Institute of Technology,Information Technology,3139,Mumbai,96.23,92.93,69.77,91.76,95.59,,97.20
+Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering,Mechanical Engineering,3199,Mumbai,96.23,,95.65,
+Government College of Engineering,Information Technology,2008,Aurangabad,96.22,91.25,79.46,92.66,95.76,96.06,97.48
+Pimpri Chinchwad Education Trust's Pimpri Chinchwad College of Engineering and Research ,Information Technology,6822,Pune,96.12,88.14,56.98,94.54,95.65,96.27,97.32
+Thakur College of Engineering and Technology,Artificial Intelligence and Data Science,3176,Mumbai,96.06,,96.54,,
+Dr. D. Y. Patil Pratishthan's D.Y.Patil College of Engineering Akurdi,Information Technology,6272,Pune,96.06,88.75,55.89,93.64,95.27,96.59,97.46
+Fr. Conceicao Rodrigues College of Engineering,Electronics and Computer Science,3184,Mumbai,96.03,,94.54,,
+Xavier Institute Of Engineering C/O Xavier Technical Institute,Computer Engineering,3214,Mumbai,96.03,,96.28,,
+Government College of Engineering,Information Technology,1002,Amravati,95.97,92.48,81.85,93.52,95.67,95.08,96.44
+S.I.E.S. Graduate School of Technology,Computer Engineering,3211,Navi Mumbai,95.97,,96.73,,
+MIT Academy of Engineering,Computer Engineering,6146,Pune,95.85,91.88,73.64,93.53,95.39,95.77,97.46
+Jaywant Shikshan Prasarak Mandal's Rajarshi Shahu College of Engineering, Information Technology,6141,Pune,95.77,90.86,56.73,92.15,95.37,95.77,96.65
+Vivekanand Education Society's Institute of Technology,Electronics and Computer Science,3185,Mumbai,95.77,,,,,96.47
+Marathwada Mitra Mandal's College of Engineering,Computer Engineering,6156,Pune,95.72,85.25,49.47,,93.94,94.62,96.21
+Government College of Engineering,Computer Science & Engineering,4025,Nagpur,95.69,93.60,88.07,,95.27,95.69,97.89
+
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology,Mechanical Engineering,6273,Pune,95.66,87.77,27.32,88.07,93.81,,95.97
+Government College of Engineering & Research,Computer Engineering,6004,Ambegaon,95.65,88.99,81.03,91.48,94.68,96.06,97.96
+Don Bosco Institute of Technology,Information Technology,3208,Mumbai,95.58,,,,,96.27
+Institute of Chemical Technology,Fibres and Textile Processing Technology,3036,Mumbai,95.51,88.14,,,91.68,89.17,94.07
+Government College of Engineering,Electronics and Telecommunication Engineering,6005,Karad,95.50,87.48,,93.18,94.04,96.27,97.17
+Shri Guru Gobind Singhji Institute of Engineering and Technology,Information Technology,2020,Nanded,95.49,90.62,68.38,93.45,95.31,95.74,96.59
+St. Francis Institute of Technology,Information Technology,3204,Mumbai,95.49,,,,,,95.65
+S.I.E.S. Graduate School of Technology,Information Technology,3211, Mumbai,95.40,,,,,,95.94
+MIT Academy of Engineering,Computer Engineering (Software Engineering),6146,Pune,95.39,91.13,68.38,,95.12,94.88,97.17
+Sardar Patel College of Engineering,Civil Engineering,3014, Mumbai,95.37,90.57,71.05,90.77,93.70,94.19,95.87
+Institute of Chemical Technology Marathwada off campus,Chemical Engineering ,2032,Jalna,95.33,88.28,40.65,,92.11,89.08,96.65
+Thakur College of Engineering and Technology,Computer Science and Engineering (Cyber Security),3176,Mumbai,95.27,,,,,,95.94
+Xavier Institute Of Engineering C/O Xavier Technical Institute,Information Technology,3214,Mumbai,95.23,,,,,,95.59
+International Institute of Information Technology (I²IT),Computer Engineering,6754,Pune,95.22,88.07,53.16,90.99,94.62,96.20,96.85
+Dr. D. Y. Patil Unitech Society's Dr. D. Y. Patil Institute of Technology,Computer Engineering,6207,Pune,95.21,86.84,52.24,90.62,94.88,95.76,97.33
+Thakur College of Engineering and Technology,Internet of Things (IoT),3176,Mumbai,95.08,,,,,,95.23
+Manjara Charitable Trust's Rajiv Gandhi Institute of Technology,Information Technology,3135,Mumbai,95.07,92.14,47.34,94.39,94.59,91.77,96.05
+Jaywant Shikshan Prasarak Mandal's Rajarshi Shahu College of Engineering,Computer Science and Business Systems,6141,Pune,95.06,89.95,49.61,,94.61,95.23,97.27
+Bharati Vidyapeeth College of Engineering,Computer Engineering,3189, Mumbai,94.99,92.73,75.14,,94.22,93.39,96.02
+Walchand College of Engineering,Civil Engineering,6007,Sangli,94.89,87.69,53.64,87.77,93.93,95.90,96.66
+Sandip Foundation Sandip Institute of Technology and Research Centre,Computer Engineering,5109,Nashik,94.89,88.46,83.17,94.03,94.37,94.33,97.27
+Manjara Charitable Trust's Rajiv Gandhi Institute of Technology,Artificial Intelligence and Data Science,3135,Mumbai,94.89,91.26,49.61,91.25,93.60,91.22,95.92
+Kolhapur Institute of Technology's College of Engineering(Autonomous),Computer Science and Engineering,6267,Kolhapur,94.88,86.69,18.44,93.68,93.43,,97.36
+Progressive Education Society's Modern College of Engineering,Computer Engineering,6139,Pune,94.87,84.20,43.11,90.80,94.10,,96.33
+All India Shri Shivaji Memorial Society's Institute of Information Technology,Artificial Intelligence and Data Science,6282,Pune,94.87,89.72,46.44,93.49,94.58,94.62,95.49
+Dr. D. Y. Patil Unitech Society's Dr. D. Y. Patil Institute of Technology,Information Technology,6207,Pune,94.87,86.37,65.42,89.39,94.52,95.40,96.98
+S.I.E.S. Graduate School of Technology,Artificial Intelligence and Data Science,3211, Mumbai,94.84,,,,,,95.58
+Dr. D. Y. Patil Pratishthan's D.Y.Patil College of Engineering,Artificial Intelligence and Data Science,6272, Pune,94.84,84.20,39.96,89.08,94.22,95.23,96.59
+Vivekanand Education Society's Institute of Technology,Electronics and Telecommunication Engineering,3185,Mumbai,94.62,,,,,,94.62
+Veermata Jijabai Technological Institute (VJTI),Textile Technology,3012,Mumbai,94.58,88.79,36.60,87.50,92.57,93.63,95.16
+
+K J Somaiya Institute of Technology, Electronics and Telecommunication Engineering, 3209, Mumbai, 94.52,,,,,, 95.27
+Sinhgad College of Engineering, Computer Engineering, 6177, Pune, 94.39, 86.16, 55.29,, 93.38, 95.15, 96.49
+Fr. Conceicao Rodrigues College of Engineering, Mechanical Engineering, 3184, Mumbai, 94.39,,,,,, 89.99
+Atharva College of Engineering, Computer Engineering, 3203, Mumbai, 94.37, 90.86, 76.63, , 92.07, 90.17, 95.27
+Yeshwantrao Chavan College of Engineering,   Computer Science, 4167, Nagpur, 94.37, 92.13, 78.87, 93.99, 94.03, , 96.90
+International Institute of Information Technology (I²IT), Information Technology, 6754, Pune, 94.32, 87.07, 49.04, , 93.40, 95.36, 96.32
+Mahatma Education Society's Pillai College of Engineering, Computer Engineering, 3207, Mumbai, 94.20,,,,,, 95.85
+Bharati Vidyapeeth's College of Engineering,  Computer Engineering, 6796, Pune, 94.19, 85.25, 36.60, 86.69, 93.21, 94.72, 95.94
+Shri Sant Gajanan Maharaj College of Engineering,  Computer Science and Engineering, 1101, Shegaon, 94.10, 87.62, 53.16, 91.34, 93.99, 93.13, 97.26
+Thakur College of Engineering and Technology, Electronics and Computer Science, 3176, Mumbai, 94.07,,,,,,93.99
+Bharati Vidyapeeth College of Engineering, Information Technology, 3189, Mumbai, 94.07, 90.49, 70.61, 85.92, 93.21, 92.07, 95.12
+S.I.E.S. Graduate School of Technology, Artificial Intelligence and Machine Learning, 3211,  Mumbai, 94.03,,,,,, 94.36 
+Mahavir Education Trust's Shah & Anchor Kutchhi Engineering College, Computer Engineering, 3148, Mumbai, 94.03,,,,,, 95.15 
+Vishwakarma Institute of Technology, Instrumentation and Control, 6273, Pune, 94.03, 86.37, 16.93, 92.73, 91.80, 91.64, 95.67
+K. E. Society's Rajarambapu Institute of Technology, Computer Engineering, 6214, Sangli, 93.96, 86.83, 58.87, 91.13, 92.11, 94.40, 96.87
+Pimpri Chinchwad College of Engineering and Research, Electronics and Telecommunication Engineering, 6822, Pune, 93.85, 78.57, 29.41, , 93.09, 95.15, 96.54
+Government College of Engineering, Electronics and Telecommunication Engineering, 2008, Aurangabad, 93.75, 87.48, 38.90, 90.93, 93.06, 93.82, 95.56
+Marathwada Mitra Mandal's College of Engineering, Information Technology, 6156, Pune, 93.64, 80.98, , 88.46, 92.83, 94.03, 95.08
+Pimpri Chinchwad College of Engineering, Mechanical Engineering, 6175, Pune, 93.60, 84.20, 21.91, 85.14, 92.57, 90.68, 94.44
+Modern College of Engineering, Information Technology, 6139, Pune, 93.53, 83.56, 58.13, 90.99, 93.00, 94.38, 95.69
+Terna Engineering College, Computer Engineering, 3190, Navi Mumbai, 93.49, 88.07, 55.29, 86.63, 91.69, 90.62, 95.08
+Government College of Engineering, Electronics and Telecommunication Engineering, 1002, Amravati, 93.49, 88.59, 56.65, 92.85, 93.00, 91.71, 94.24
+Vidyavardhini's College of Engineering and Technology, Computer Engineering, 3194, Mumbai, 93.40, 85.25, 66.67, 87.21, 90.24, 87.69, 94.39
+Modern Education Society's College of Engineering, Computer Engineering, 6281, Pune, 93.29, 82.86, 11.11, 90.24, 92.48, 93.93, 95.40
+S.I.E.S. Graduate School of Technology, Computer Science and Engineering (Internet of Things and Cyber Security Including Blockchain Technology), 3211, Navi Mumbai, 93.29,,,,,, 93.60 
+Vivekanand Education Society's Institute of Technology, Automation and Robotics, 3185, Mumbai, 93.21,,,,,, 95.85
+Dr. D. Y. Patil Institute of Technology,  Artificial Intelligence and Data Science, 6207, Pune, 93.18, 82.16, 18.90, 89.29, 92.73, 93.94, 95.49
+Datta Meghe College of Engineering, Computer Engineering, 3187,  Mumbai, 93.13, 89.96, 58.08, , 91.71, 91.22, 94.99
+Kolhapur Institute of Technology's College of Engineering (Autonomous), Computer Science and Engineering (Artificial Intelligence and Machine Learning), 6267, Kolhapur, 93.10, 82.22, , 89.17, 90.04, 93.75, 96.59
+
+
+
+Kolhapur Institute of Technology's College of Engineering(Autonomous),Computer Science and Engineering (Artificial Intelligence and Machine Learning),6267,Kolhapur,93.10,82.22,,89.17,90.04,93.75,96.59
+K. E. Society's Rajarambapu Institute of Technology,Computer Science and Information Technology,6214,Sangli,93.09,85.19,,,89.96,93.72,95.84
+Agnel Charities' FR. C. Rodrigues Institute of Technology,Electronics and Telecommunication Engineering,3197,Mumbai,93.09,89.39,,,,,89.72
+Vidyalankar Institute of Technology,Electronics and Computer Science,3139,Mumbai,93.06,89.39,66.05,88.07,91.37,90.12,93.53
+Yeshwantrao Chavan College of Engineering,Information Technology,4167,Nagpur,93.06,90.54,74.86,91.03,92.67,90.19,94.62
+Atharva College of Engineering,Information Technology,3203,Mumbai,93.04,89.08,31.64,90.12,90.57,86.69,94.10
+Sandip Foundation Sandip Institute of Technology and Research Centre, Information Technology,5109,Nashik,93.04,84.46,74.13,91.88,92.15,93.06,95.16
+Xavier Institute Of Engineering,Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain Technology),3214,Mumbai,93.04,,,,,,93.96
+Pune Vidyarthi Griha's College of Engineering and Technology and G K Pate(Wani),Electronics and Telecommunication Engineering,6274,Pune,92.90,73.27,,89.46,90.90,94.99,96.06
+Government College of Engineering,Computer Engineering,5004,Jalgaon,92.86,88.51,76.71,91.37,91.88,92.15,94.22
+Thakur College of Engineering and Technology,Electronics and Telecommunication Engineering,3176,Mumbai,92.86,,,,,,91.22
+Sinhgad College of Engineering,Information Technology,6177,Pune,92.86,80.62,19.93,87.05,92.49,94.24,95.08
+Terna Engineering College,Artificial Intelligence and Data Science,3190, Mumbai,92.86,87.69,22.88,,89.99,88.80,94.03
+Marathwada Mitra Mandal's College of Engineering,Artificial Intelligence and Data Science,6156,Pune,92.85,79.74,,88.75,91.80,92.73,94.38
+Progressive Education Society's Modern College of Engineering,Artificial Intelligence and Data Science,6139,Pune,92.85,81.85,,85.15,91.89,93.38,94.61
+Yeshwantrao Chavan College of Engineering,Computer Science (Artificial Intelligence and Machine Learning),4167,Nagpur,92.83,91.76,75.34,88.14,92.46,88.09,95.58
+G.H.Raisoni College of Engineering & Management,Computer Engineering,6155,Pune,92.73,,,,,,94.59
+Kolhapur Institute of Technology's College of Engineering(Autonomous),Computer Science and Engineering (Data Science),6267,Kolhapur,92.71,82.33,,90.42,91.02,93.75,97.02
+Rizvi Education Society's Rizvi College of Engineering,Computer Engineering,3201,Mumbai,92.71,,,,,,93.72
+Mahatma Education Society's Pillai College of Engineering,Information Technology,3207,Mumbai,92.57,,,,,,94.72
+All India Shri Shivaji Memorial Society's College of Engineering,Electronics and Telecommunication Engineering,6278,Pune,92.49,80.41,,87.62,91.13,92.93,93.80
+Pimpri Chinchwad Education Trust Pimpri Chinchwad College of Engineering,Civil Engineering,6175,Pune,92.49,85.92,69.65,88.28,90.04,86.35,93.70
+Vidyavardhini's College of Engineering and Technology,Information Technology,3194, Mumbai,92.31,83.56,59.68,86.16,88.99,86.84,93.39
+Vidya Pratisthan's Kamalnayan Bajaj Institute of Engineering and Technology,Computer Engineering,6284,Pune,92.31,85.15,22.65,90.18,91.03,93.04,94.39
+Mahavir Education Trust's Shah & Anchor Kutchhi Engineering College,Information Technology,3148,Mumbai,92.28,,,,,,93.80
+Progressive Education Society's Modern College of Engineering,Artificial Intelligence and Machine Learning,6139,Pune,92.22,78.40,,,91.77,93.09,94.58
+Shri Sant Gajanan Maharaj College of Engineering,Information Technology,1101,Shegaon,92.15,84.43,68.40,89.16,91.71,92.22,94.38
+Shri Guru Gobind Singhji Institute of Engineering and Technology,Electronics and Telecommunication Engineering,2020,Nanded,92.14,84.46,3.37,90.68,91.45,,95.16
+Mahavir Education Trust's Shah & Anchor Kutchhi Engineering College,Artificial Intelligence and Data Science,3148,Mumbai,92.13,,,,,,93.43
+Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology,Chemical Engineering,6273,Pune,92.11,86.63,27.14,,89.17,89.27,96.97
+Terna Engineering College,Information Technology,3190, Mumbai,92.08,88.99,49.22,91.25,88.99,94.64
+Vidyavardhini's College of Engineering and Technology,Artificial Intelligence and Data Science,3194,Mumbai,91.89,78.87,73.37,88.46,82.54,94.20,14625
+A.P. Shah Institute of Technology,Computer Engineering,3475, Mumbai,91.88,,,92.86,17739
+K. E. Society's Rajarambapu Institute of Technology,Computer Science and Engineering (Artificial Intelligence and Machine Learning),6214,Sangli,91.80,81.48,,89.17,92.67,95.76,10856
+JSPM'S Jaywantrao Sawant College of Engineering,Computer Engineering,6145,Pune,91.80,79.58,37.12,88.51,91.25,92.55,94.72
+Jaywant Shikshan Prasarak Mandal's Rajarshi Shahu College of Engineering,Electronics and Telecommunication Engineering,6141,Pune,91.77,85.92,29.24,88.07,90.99,91.22,93.70
+Sinhgad Technical Education Society's Smt. Kashibai Navale College of Engineering,Computer Engineering,6178,Pune,91.77,78.33,3.84,86.10,90.86,92.73,94.37
+Laxminarayan Institute of Technology,Chemical Engineering,4005,Nagpur,91.75,86.25,39.78,81.51,89.99,89.69,95.06
+Government College of Engineering,Electronics and Telecommunication Engineering,4025,Nagpur,91.74,87.54,51.47,91.03,,90.45,95.16
+Vidyalankar Institute of Technology,Electronics and Telecommunication Engineering,3139,Mumbai,91.71,87.37,55.89,84.51,88.99,87.48,92.22
+Dattajirao Kadam Technical Education Society's Textile & Engineering Institute,Computer Science and Engineering,6222,Ichalkaranji,91.71,79.39,,91.68,88.80,93.09,96.93
+Yeshwantrao Chavan College of Engineering,Computer Technology,4167,Nagpur,91.68,89.40,67.57,,91.34,87.69,95.138

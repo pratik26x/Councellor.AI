@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pharmacy College Predictor - Counsellor.AI | Rising Education</title>
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/pharmacy.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+  <div class="page-wrap">
+
+  <h2 class="title">Pharmacy College Predictor &mdash; Predict your chances of getting admission in top colleges</h2>
+
+  <div class="main">
+    <form id="prediction-form">
+      <div class="inputs">
+        <div class="percentile">
+          <p>Percentile</p>
+          <input type="number" required id="percentile" name="percentile" class="input-field" placeholder="Enter your percentile" min="0" max="100" step="0.01" />
+        </div>
+        <div class="branch">
+          <p>Branch (optional)</p>
+          <input type="text" name="branch" class="input-field" placeholder="e.g. B.Pharm" />
+        </div>
+        <div class="category">
+          <p>Reservation Category</p>
+          <select id="category" name="category" class="input-field" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="OPEN">OPEN</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="EWS">EWS</option>
+            <option value="TWFS">TWFS</option>
+            <option value="NT1">NT1</option>
+          </select>
+        </div>
+        <div class="preferred-cities">
+          <p>Preferred Cities</p>
+          <input type="text" name="preferred_cities" class="input-field" placeholder="Pune, Nashik (comma separated)" />
+        </div>
+        <button type="submit" id="predict-button">Predict Colleges</button>
+      </div>
+    </form>
+
+    <div class="img1">
+      <img src="/assets/images/download.png" alt="Illustration" />
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <script src="/js/pharmacy.js"></script>
+  </div><!-- /.page-wrap -->
+</body>
+</html>

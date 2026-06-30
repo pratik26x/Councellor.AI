@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BITSAT College Predictor - Counsellor.AI | Rising Education</title>
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/bits.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+  <div class="page-wrap">
+
+  <div class="container">
+    <h1>BITSAT College Predictor</h1>
+    <p style="color:#666;margin-bottom:24px;">Enter your BITSAT score to see which BITS campus and branch you can get.</p>
+    <form id="prediction-form">
+      <label for="score">Enter Your BITSAT Score (out of 390):</label>
+      <input type="number" id="score" name="score" min="0" max="390" required />
+
+      <label for="campus">Select Campus (or leave blank for all):</label>
+      <select id="campus" name="campus">
+        <option value="">All Campuses</option>
+        <option value="Pilani">Pilani</option>
+        <option value="K K Birla Goa">K K Birla Goa</option>
+        <option value="Hyderabad">Hyderabad</option>
+      </select>
+
+      <button type="submit">Predict Colleges</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script src="/js/bits.js"></script>
+  </div><!-- /.page-wrap -->
+</body>
+</html>

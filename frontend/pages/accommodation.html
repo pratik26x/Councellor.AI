@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG &amp; Flat Accommodation - Counsellor.AI | Rising Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/accommodation.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+
+  <!-- HERO -->
+  <section class="acc-hero">
+    <div class="acc-hero-text">
+      <span class="badge">&#127968; PG &amp; Flat Finder</span>
+      <h1>Find Your Home<br /><span>Away From Home</span></h1>
+      <p>Browse verified PGs, flats, and hostels near your college. Filter by city, budget, and gender preference.</p>
+      <div class="hero-pills">
+        <span class="pill-stat">&#127968; <strong>50+</strong> Listings</span>
+        <span class="pill-stat">&#127961; <strong>6</strong> Cities</span>
+        <span class="pill-stat">&#9989; <strong>Verified</strong> Contacts</span>
+      </div>
+    </div>
+    <div class="acc-hero-cards">
+      <div class="hero-float">&#127968;<p>PG</p></div>
+      <div class="hero-float">&#127963;<p>Flat</p></div>
+      <div class="hero-float">&#127970;<p>Hostel</p></div>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <div class="filter-field">
+        <label>City</label>
+        <input type="text" id="f-city" placeholder="e.g. Pune, Mumbai" />
+      </div>
+      <div class="filter-field">
+        <label>Type</label>
+        <select id="f-type">
+          <option value="">All Types</option>
+          <option value="PG">PG</option>
+          <option value="Flat">Flat</option>
+          <option value="Hostel">Hostel</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label>Gender</label>
+        <select id="f-gender">
+          <option value="">All</option>
+          <option value="Boys">Boys</option>
+          <option value="Girls">Girls</option>
+          <option value="Co-ed">Co-ed</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label>Max Rent (Rs.)</label>
+        <input type="number" id="f-rent" placeholder="e.g. 8000" />
+      </div>
+      <button class="btn-search" onclick="searchAccommodation()">&#128269; Search</button>
+      <button class="btn-reset" onclick="resetFilters()">Reset</button>
+    </div>
+  </div>
+
+  <!-- SORT + COUNT BAR -->
+  <div class="results-bar">
+    <span id="acc-count">Loading...</span>
+    <div class="sort-row">
+      <label>Sort by:</label>
+      <select id="acc-sort" onchange="sortAndRender()">
+        <option value="rent-asc">Rent: Low to High</option>
+        <option value="rent-desc">Rent: High to Low</option>
+        <option value="az">Name A-Z</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- LISTINGS GRID -->
+  <div class="acc-grid" id="acc-grid">
+    <div class="spinner"><div class="spinner-ring"></div><p>Loading listings...</p></div>
+  </div>
+
+  <!-- ADD LISTING CTA -->
+  <div class="add-cta">
+    <div class="add-cta-inner">
+      <div>
+        <h3>&#128205; Have a PG or Flat to List?</h3>
+        <p>Reach thousands of students looking for accommodation near colleges. List for free.</p>
+      </div>
+      <button class="btn-add" onclick="openModal()">+ Add Your Listing</button>
+    </div>
+  </div>
+
+  <!-- TIPS SECTION -->
+  <section class="tips-section">
+    <h2>&#128161; Tips for Finding the Right PG</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <span class="tip-icon">&#128269;</span>
+        <h4>Visit Before Paying</h4>
+        <p>Always visit the PG in person before paying any advance. Check the room, bathroom, and common areas.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">&#128203;</span>
+        <h4>Read the Agreement</h4>
+        <p>Get a written rental agreement. Check notice period, deposit amount, and included utilities.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">&#128101;</span>
+        <h4>Talk to Existing Residents</h4>
+        <p>Speak to current residents about the owner, maintenance, and overall experience before deciding.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">&#128205;</span>
+        <h4>Check Distance to College</h4>
+        <p>Factor in commute time and transport costs. A slightly expensive PG closer to college may save money overall.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD LISTING MODAL -->
+  <div class="modal-overlay hidden" id="add-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      <h3>&#127968; List Your PG / Flat</h3>
+      <p class="modal-sub">Fill in the details below. We'll review and publish within 24 hours.</p>
+      <form id="add-form" onsubmit="submitListing(event)">
+        <div class="modal-grid">
+          <div class="form-group">
+            <label>Listing Title *</label>
+            <input name="title" placeholder="e.g. Sunrise PG for Boys near VIT" required />
+          </div>
+          <div class="form-group">
+            <label>Type *</label>
+            <select name="type" required>
+              <option value="PG">PG</option>
+              <option value="Flat">Flat</option>
+              <option value="Hostel">Hostel</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>City *</label>
+            <input name="city" placeholder="Pune" required />
+          </div>
+          <div class="form-group">
+            <label>Area / Locality</label>
+            <input name="area" placeholder="Kothrud" />
+          </div>
+          <div class="form-group">
+            <label>Monthly Rent (Rs.) *</label>
+            <input type="number" name="rent" placeholder="6000" required />
+          </div>
+          <div class="form-group">
+            <label>Contact Number *</label>
+            <input name="contact" placeholder="9876543210" required />
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <select name="gender">
+              <option value="Boys">Boys</option>
+              <option value="Girls">Girls</option>
+              <option value="Co-ed">Co-ed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Amenities</label>
+            <input name="amenities" placeholder="WiFi, Meals, AC, Laundry" />
+          </div>
+          <div class="form-group full-width">
+            <label>Description</label>
+            <textarea name="description" rows="3" placeholder="Describe the accommodation, nearby landmarks, rules..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">Submit Listing</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal-overlay hidden" id="detail-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeDetailModal()">&#10005;</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>&copy; 2025 Counsellor.AI &middot; <a href="/">Home</a> &middot; <a href="/pages/mess.html">Mess &amp; Tiffin</a> &middot; <a href="/pages/scholarships.html">Scholarships</a></p>
+  </footer>
+
+  <script src="/js/accommodation.js"></script>
+</body>
+</html>

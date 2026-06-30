@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEE College Predictor - Counsellor.AI | Rising Education</title>
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/jee.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+  <div class="page-wrap">
+
+  <h2 class="title">JEE College Predictor &mdash; Predict your chances of getting admission in top IITs, NITs &amp; IIITs</h2>
+
+  <div class="main">
+    <form id="prediction-form">
+      <div class="inputs">
+        <div class="Rank">
+          <p>JEE Rank</p>
+          <input type="number" required id="Rank" name="Rank" class="input-field" placeholder="Enter your Rank" min="1" />
+        </div>
+        <div class="gender">
+          <p>Gender</p>
+          <select id="gender" name="gender" class="input-field" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Gender-Neutral">Gender-Neutral</option>
+            <option value="Female-Only">Female-Only</option>
+          </select>
+        </div>
+        <div class="branch">
+          <p>Branch (optional)</p>
+          <input type="text" name="branch" class="input-field" placeholder="e.g. Computer Science" />
+        </div>
+        <div class="category">
+          <p>Reservation Category</p>
+          <select id="category" name="category" class="input-field" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="OPEN">GEN / OPEN</option>
+            <option value="GEN-EWS">GEN-EWS</option>
+            <option value="GEN-PWD">GEN-PWD</option>
+            <option value="OBC-NCL">OBC-NCL</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+          </select>
+        </div>
+        <div class="preferred-cities">
+          <p>Preferred States</p>
+          <input type="text" name="preferred_cities" class="input-field" placeholder="Maharashtra, Delhi (comma separated)" />
+        </div>
+        <button type="submit" id="predict-button">Predict Colleges</button>
+      </div>
+    </form>
+
+    <div class="img1">
+      <img src="/assets/rb_1981.png" alt="Illustration" />
+    </div>
+  </div>
+
+  <h2 style="padding:20px 40px;">Predicted Colleges</h2>
+  <table id="results-table" style="margin:0 40px;width:calc(100% - 80px);">
+    <thead>
+      <tr>
+        <th>Institute</th><th>Program</th>
+        <th>Category</th><th>Opening Rank</th><th>Closing Rank</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <br />
+
+  <div class="container">
+    <h2>JEE Percentile vs Shift-wise Marks</h2><br />
+    <table class="shiftwise-marks">
+      <thead>
+        <tr>
+          <th>Percentile</th><th>Jan 27 S1</th><th>Jan 27 S2</th><th>Jan 29 S1</th><th>Jan 29 S2</th>
+          <th>Jan 30 S1</th><th>Jan 30 S2</th><th>Jan 31 S1</th><th>Jan 31 S2</th><th>Feb 1 S1</th><th>Feb 1 S2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>99.9</td><td>278</td><td>264</td><td>264</td><td>268</td><td>257</td><td>255</td><td>233</td><td>215</td><td>224</td><td>252</td></tr>
+        <tr><td>99.5</td><td>254</td><td>233</td><td>225</td><td>232</td><td>216</td><td>214</td><td>191</td><td>171</td><td>180</td><td>200</td></tr>
+        <tr><td>99</td><td>236</td><td>211</td><td>203</td><td>212</td><td>193</td><td>191</td><td>170</td><td>151</td><td>161</td><td>172</td></tr>
+        <tr><td>98</td><td>213</td><td>185</td><td>180</td><td>189</td><td>169</td><td>167</td><td>148</td><td>131</td><td>141</td><td>148</td></tr>
+        <tr><td>97</td><td>196</td><td>170</td><td>165</td><td>174</td><td>152</td><td>151</td><td>134</td><td>118</td><td>126</td><td>131</td></tr>
+        <tr><td>95</td><td>173</td><td>151</td><td>144</td><td>154</td><td>130</td><td>129</td><td>114</td><td>101</td><td>106</td><td>109</td></tr>
+        <tr><td>90</td><td>139</td><td>121</td><td>114</td><td>120</td><td>98</td><td>97</td><td>84</td><td>72</td><td>74</td><td>76</td></tr>
+      </tbody>
+    </table>
+  </div><br />
+
+  <div class="container">
+    <h2>JEE Marks vs Rank</h2><br />
+    <table>
+      <thead><tr><th>Marks</th><th>Rank</th></tr></thead>
+      <tbody>
+        <tr><td>300&ndash;281</td><td>1&ndash;20</td></tr>
+        <tr><td>280&ndash;261</td><td>21&ndash;80</td></tr>
+        <tr><td>260&ndash;241</td><td>81&ndash;200</td></tr>
+        <tr><td>240&ndash;221</td><td>201&ndash;500</td></tr>
+        <tr><td>220&ndash;201</td><td>501&ndash;1,200</td></tr>
+        <tr><td>200&ndash;181</td><td>1,201&ndash;3,000</td></tr>
+        <tr><td>180&ndash;161</td><td>3,001&ndash;6,000</td></tr>
+        <tr><td>160&ndash;141</td><td>6,001&ndash;9,500</td></tr>
+        <tr><td>140&ndash;121</td><td>9,501&ndash;15,000</td></tr>
+        <tr><td>120&ndash;101</td><td>15,001&ndash;22,000</td></tr>
+        <tr><td>100&ndash;81</td><td>22,001&ndash;35,000</td></tr>
+        <tr><td>80&ndash;61</td><td>35,001&ndash;50,000</td></tr>
+        <tr><td>60&ndash;41</td><td>50,001&ndash;75,000</td></tr>
+        <tr><td>40&ndash;21</td><td>75,001&ndash;1,00,000</td></tr>
+        <tr><td>20&ndash;1</td><td>1,00,001&ndash;2,00,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/js/jee.js"></script>
+</body>
+</html>

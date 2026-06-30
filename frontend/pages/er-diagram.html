@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ER Diagram - Counsellor.AI | Rising Education</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;padding:32px 24px}
+h1{text-align:center;font-size:1.8rem;font-weight:800;color:#FFBF23;margin-bottom:6px;letter-spacing:.5px}
+.subtitle{text-align:center;font-size:.85rem;color:#94a3b8;margin-bottom:40px}
+.er-canvas{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;max-width:1400px;margin:0 auto}
+.entity{background:#1e293b;border:2px solid #334155;border-radius:12px;min-width:240px;max-width:280px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.4);transition:transform .2s,box-shadow .2s}
+.entity:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.entity-header{padding:12px 16px;font-size:.95rem;font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.entity-header .icon{font-size:1.2rem}
+.entity-body{padding:0}
+.field{display:flex;align-items:center;gap:8px;padding:8px 16px;border-top:1px solid #1e293b;font-size:.78rem}
+.field:nth-child(odd){background:#1a2744}
+.field:nth-child(even){background:#1e293b}
+.field-name{flex:1;color:#e2e8f0;font-weight:500}
+.field-type{color:#64748b;font-size:.72rem;font-family:monospace}
+.pk{color:#FFBF23;font-weight:800;font-size:.7rem;background:rgba(255,191,35,.15);padding:1px 6px;border-radius:4px;margin-right:4px}
+.fk{color:#60a5fa;font-weight:700;font-size:.7rem;background:rgba(96,165,250,.15);padding:1px 6px;border-radius:4px;margin-right:4px}
+.uq{color:#a78bfa;font-size:.7rem;background:rgba(167,139,250,.15);padding:1px 6px;border-radius:4px;margin-right:4px}
+.nn{color:#f87171;font-size:.65rem;background:rgba(248,113,113,.1);padding:1px 5px;border-radius:3px;margin-right:2px}
+
+/* Colour themes per entity */
+.user .entity-header{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff}
+.auth-token .entity-header{background:linear-gradient(135deg,#0369a1,#0284c7);color:#fff}
+.student .entity-header{background:linear-gradient(135deg,#065f46,#059669);color:#fff}
+.scholarship .entity-header{background:linear-gradient(135deg,#92400e,#d97706);color:#fff}
+.resource .entity-header{background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff}
+.accommodation .entity-header{background:linear-gradient(135deg,#9d174d,#db2777);color:#fff}
+.mess-tiffin .entity-header{background:linear-gradient(135deg,#166534,#16a34a);color:#fff}
+
+/* Relationship lines section */
+.relationships{max-width:1400px;margin:40px auto 0;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:24px 32px}
+.relationships h2{font-size:1rem;font-weight:700;color:#FFBF23;margin-bottom:18px;border-bottom:1px solid #334155;padding-bottom:10px}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.rel-item{display:flex;align-items:flex-start;gap:12px;background:#0f172a;border-radius:8px;padding:12px 14px}
+.rel-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+.rel-text strong{display:block;font-size:.82rem;color:#e2e8f0;margin-bottom:2px}
+.rel-text span{font-size:.75rem;color:#64748b}
+.rel-badge{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;margin-left:6px}
+.one-to-many{background:rgba(96,165,250,.15);color:#60a5fa}
+.one-to-one{background:rgba(167,139,250,.15);color:#a78bfa}
+
+/* Legend */
+.legend{max-width:1400px;margin:20px auto 0;display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.75rem;color:#94a3b8}
+.legend-dot{width:10px;height:10px;border-radius:2px}
+
+/* CSV note */
+.csv-note{max-width:1400px;margin:20px auto 0;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:20px 28px}
+.csv-note h2{font-size:1rem;font-weight:700;color:#FFBF23;margin-bottom:14px}
+.csv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.csv-item{background:#0f172a;border-radius:8px;padding:10px 14px;font-size:.78rem}
+.csv-item strong{display:block;color:#e2e8f0;margin-bottom:3px}
+.csv-item span{color:#64748b}
+
+footer{text-align:center;margin-top:40px;font-size:.75rem;color:#475569}
+footer strong{color:#FFBF23}
+</style>
+</head>
+<body>
+
+<h1>&#128196; Entity Relationship Diagram</h1>
+<p class="subtitle">Counsellor.AI &mdash; A Rising Education Initiative &nbsp;|&nbsp; Database: SQLite (counsellor.db)</p>
+
+<div class="er-canvas">
+
+  <!-- USER -->
+  <div class="entity user">
+    <div class="entity-header"><span class="icon">&#128100;</span> USER</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">full_name</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="nn">NN</span><span class="uq">UQ</span><span class="field-name">email</span><span class="field-type">VARCHAR(150)</span></div>
+      <div class="field"><span class="nn">NN</span><span class="uq">UQ</span><span class="field-name">username</span><span class="field-type">VARCHAR(80)</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">password_hash</span><span class="field-type">VARCHAR(256)</span></div>
+      <div class="field"><span class="field-name">role</span><span class="field-type">VARCHAR(20) = 'student'</span></div>
+      <div class="field"><span class="field-name">created_at</span><span class="field-type">DATETIME</span></div>
+      <div class="field"><span class="field-name">is_active</span><span class="field-type">BOOLEAN = True</span></div>
+    </div>
+  </div>
+
+  <!-- AUTH TOKEN -->
+  <div class="entity auth-token">
+    <div class="entity-header"><span class="icon">&#128274;</span> AUTH_TOKEN</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="fk">FK</span><span class="nn">NN</span><span class="field-name">user_id</span><span class="field-type">INTEGER &rarr; user.id</span></div>
+      <div class="field"><span class="nn">NN</span><span class="uq">UQ</span><span class="field-name">token</span><span class="field-type">VARCHAR(64)</span></div>
+      <div class="field"><span class="field-name">created_at</span><span class="field-type">DATETIME</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">expires_at</span><span class="field-type">DATETIME</span></div>
+    </div>
+  </div>
+
+  <!-- STUDENT -->
+  <div class="entity student">
+    <div class="entity-header"><span class="icon">&#127891;</span> STUDENT</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">full_name</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">dob</span><span class="field-type">VARCHAR(10)</span></div>
+      <div class="field"><span class="field-name">gender</span><span class="field-type">VARCHAR(10)</span></div>
+      <div class="field"><span class="nn">NN</span><span class="uq">UQ</span><span class="field-name">email</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">phone</span><span class="field-type">VARCHAR(20)</span></div>
+      <div class="field"><span class="field-name">current_address</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">permanent_address</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">hobbies</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">clubs</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">volunteer_work</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">languages_known</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">platforms</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">specializations</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">certifications</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">career_goals</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">preferred_industries</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">internships</span><span class="field-type">VARCHAR(255)</span></div>
+    </div>
+  </div>
+
+  <!-- SCHOLARSHIP -->
+  <div class="entity scholarship">
+    <div class="entity-header"><span class="icon">&#127941;</span> SCHOLARSHIP</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">name</span><span class="field-type">VARCHAR(200)</span></div>
+      <div class="field"><span class="field-name">provider</span><span class="field-type">VARCHAR(200)</span></div>
+      <div class="field"><span class="field-name">amount</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">eligibility</span><span class="field-type">TEXT</span></div>
+      <div class="field"><span class="field-name">deadline</span><span class="field-type">VARCHAR(50)</span></div>
+      <div class="field"><span class="field-name">category</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">apply_link</span><span class="field-type">VARCHAR(500)</span></div>
+      <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+    </div>
+  </div>
+
+  <!-- RESOURCE -->
+  <div class="entity resource">
+    <div class="entity-header"><span class="icon">&#128214;</span> RESOURCE</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">title</span><span class="field-type">VARCHAR(300)</span></div>
+      <div class="field"><span class="field-name">exam</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">subject</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">resource_type</span><span class="field-type">VARCHAR(50)</span></div>
+      <div class="field"><span class="field-name">year</span><span class="field-type">VARCHAR(10)</span></div>
+      <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+      <div class="field"><span class="field-name">file_url</span><span class="field-type">VARCHAR(500)</span></div>
+      <div class="field"><span class="field-name">is_free</span><span class="field-type">BOOLEAN = True</span></div>
+      <div class="field"><span class="field-name">downloads</span><span class="field-type">INTEGER = 0</span></div>
+      <div class="field"><span class="field-name">tags</span><span class="field-type">VARCHAR(300)</span></div>
+    </div>
+  </div>
+
+  <!-- ACCOMMODATION -->
+  <div class="entity accommodation">
+    <div class="entity-header"><span class="icon">&#127968;</span> ACCOMMODATION</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">title</span><span class="field-type">VARCHAR(200)</span></div>
+      <div class="field"><span class="field-name">type</span><span class="field-type">VARCHAR(50)</span></div>
+      <div class="field"><span class="field-name">city</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">area</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">rent</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="field-name">contact</span><span class="field-type">VARCHAR(50)</span></div>
+      <div class="field"><span class="field-name">amenities</span><span class="field-type">VARCHAR(255)</span></div>
+      <div class="field"><span class="field-name">gender</span><span class="field-type">VARCHAR(20)</span></div>
+      <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+    </div>
+  </div>
+
+  <!-- MESS TIFFIN -->
+  <div class="entity mess-tiffin">
+    <div class="entity-header"><span class="icon">&#127857;</span> MESS_TIFFIN</div>
+    <div class="entity-body">
+      <div class="field"><span class="pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="nn">NN</span><span class="field-name">name</span><span class="field-type">VARCHAR(200)</span></div>
+      <div class="field"><span class="field-name">type</span><span class="field-type">VARCHAR(50)</span></div>
+      <div class="field"><span class="field-name">city</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">area</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">monthly_cost</span><span class="field-type">INTEGER</span></div>
+      <div class="field"><span class="field-name">contact</span><span class="field-type">VARCHAR(50)</span></div>
+      <div class="field"><span class="field-name">cuisine</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">timing</span><span class="field-type">VARCHAR(100)</span></div>
+      <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RELATIONSHIPS -->
+<div class="relationships">
+  <h2>&#128279; Relationships &amp; Constraints</h2>
+  <div class="rel-grid">
+    <div class="rel-item">
+      <span class="rel-icon">&#128100;</span>
+      <div class="rel-text">
+        <strong>USER &rarr; AUTH_TOKEN <span class="rel-badge one-to-many">1 : N</span></strong>
+        <span>One user can have many active session tokens (multi-device login). Token is deleted on logout or expiry.</span>
+      </div>
+    </div>
+    <div class="rel-item">
+      <span class="rel-icon">&#128203;</span>
+      <div class="rel-text">
+        <strong>USER &rarr; STUDENT <span class="rel-badge one-to-one">1 : 1</span></strong>
+        <span>A registered user can fill one student profile form. Linked by email (not a hard FK, by design).</span>
+      </div>
+    </div>
+    <div class="rel-item">
+      <span class="rel-icon">&#127941;</span>
+      <div class="rel-text">
+        <strong>SCHOLARSHIP (standalone) <span class="rel-badge one-to-many">0 : N</span></strong>
+        <span>Scholarships are independent listings. Any user can browse and apply. No FK to User.</span>
+      </div>
+    </div>
+    <div class="rel-item">
+      <span class="rel-icon">&#128214;</span>
+      <div class="rel-text">
+        <strong>RESOURCE (standalone) <span class="rel-badge one-to-many">0 : N</span></strong>
+        <span>Resources are independent. Download count tracked per resource. No FK to User.</span>
+      </div>
+    </div>
+    <div class="rel-item">
+      <span class="rel-icon">&#127968;</span>
+      <div class="rel-text">
+        <strong>ACCOMMODATION (standalone) <span class="rel-badge one-to-many">0 : N</span></strong>
+        <span>PG/Flat listings are independent. Any user can browse or submit a listing.</span>
+      </div>
+    </div>
+    <div class="rel-item">
+      <span class="rel-icon">&#127857;</span>
+      <div class="rel-text">
+        <strong>MESS_TIFFIN (standalone) <span class="rel-badge one-to-many">0 : N</span></strong>
+        <span>Mess/Tiffin services are independent listings. Any user can browse or submit.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#FFBF23"></div> PK = Primary Key</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div> FK = Foreign Key</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> UQ = Unique</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f87171"></div> NN = Not Null</div>
+</div>
+
+<!-- CSV DATA SOURCES -->
+<div class="csv-note">
+  <h2>&#128196; External Data Sources (CSV Files &mdash; Read-Only, Not in DB)</h2>
+  <div class="csv-grid">
+    <div class="csv-item">
+      <strong>college_cutoffs.csv</strong>
+      <span>MHT-CET engineering college cutoffs. Columns: College Name, Branch Name, Cutoff Rank, City, OPEN/SC/ST/OBC/EWS/NT1/TWFS Percentile</span>
+    </div>
+    <div class="csv-item">
+      <strong>pharmacy_colleges_cutoffs.csv</strong>
+      <span>MH Pharmacy college cutoffs. Same structure as MHT-CET CSV with pharmacy-specific colleges.</span>
+    </div>
+    <div class="csv-item">
+      <strong>BITSAT_Cutoffs.csv</strong>
+      <span>BITS campus cutoffs. Columns: Campus, Program, Cutoff Score, Maximum Marks</span>
+    </div>
+    <div class="csv-item">
+      <strong>iit-and-nit-colleges-admission-criteria-v2.csv</strong>
+      <span>JEE IIT/NIT data. Columns: year, institute_type, institute_short, program_name, category, pool, opening_rank, closing_rank</span>
+    </div>
+    <div class="csv-item">
+      <strong>colleges.csv / iit.csv / jee_cutoffs.csv</strong>
+      <span>Supplementary college data files. Used for reference and future features.</span>
+    </div>
+    <div class="csv-item">
+      <strong>Pharmacy.csv</strong>
+      <span>Additional pharmacy college data for extended predictions.</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Counsellor.AI &nbsp;&middot;&nbsp; A <strong>Rising Education</strong> Initiative &nbsp;&middot;&nbsp; Database: SQLite &nbsp;&middot;&nbsp; ORM: Flask-SQLAlchemy</p>
+</footer>
+
+</body>
+</html>

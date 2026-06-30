@@ -1,0 +1,148 @@
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5FFFA;
+}
+
+.page-wrap {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(102, 205, 170, 0.5);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #66CDAA;
+    text-align: center;
+}
+
+label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #66CDAA;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #66CDAA;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4CAF91;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style for the entire form */
+form {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the label */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+/* Styling for the select element */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #66CDAA;  /* Light green border */
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Hover effect on select */
+select:hover {
+    border-color: #32CD32;  /* Darker green on hover */
+}
+
+/* Focus effect on select */
+select:focus {
+    outline: none;
+    border-color: #32CD32;  /* Dark green on focus */
+    box-shadow: 0 0 5px rgba(50, 205, 50, 0.6); /* Subtle shadow on focus */
+}
+
+/* Style for the submit button */
+button {
+    background-color: #66CDAA;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect on button */
+button:hover {
+    background-color: #32CD32;
+}
+
+/* Style for the result div */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* ── Result styles ── */
+#result { margin-top: 20px; }
+.result-header h3 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding: 12px 16px; background: #d1fae5; border-left: 4px solid #66CDAA; border-radius: 6px; }
+.result-table-wrap { overflow-x: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+.result-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+.result-table thead tr { background: #1a1a2e; color: #fff; }
+.result-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; }
+.result-table td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; color: #2d2d2d; }
+.result-table tr:last-child td { border-bottom: none; }
+.result-table tr:hover td { background: #f0fdf4; }
+.result-table td:first-child { color: #9ca3af; font-size: 12px; width: 36px; }
+.cutoff-badge { display: inline-block; padding: 3px 10px; background: #d1fae5; color: #065f46; border-radius: 10px; font-weight: 700; font-size: 12px; }
+.result-empty { text-align: center; padding: 40px 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.06); color: #6b7280; font-size: 15px; line-height: 1.8; }
+.result-loading { text-align: center; padding: 40px 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.06); color: #6b7280; }
+.spinner-ring { display: inline-block; width: 36px; height: 36px; border: 3px solid #e5e7eb; border-top-color: #66CDAA; border-radius: 50%; animation: spin .8s linear infinite; margin-bottom: 12px; }
+@keyframes spin { to { transform: rotate(360deg); } }

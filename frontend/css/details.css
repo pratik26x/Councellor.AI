@@ -1,0 +1,116 @@
+/* details.css */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --amber:#FFBF23; --amber-lt:#FFF3CD; --amber-dk:#e6a800;
+  --dark:#1a1a2e; --text:#2d2d2d; --muted:#6b7280;
+  --border:#e5e7eb; --white:#fff; --green:#10b981; --red:#ef4444;
+  --radius:12px; --shadow:0 4px 20px rgba(0,0,0,.08);
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Inter','Space Grotesk',sans-serif; background:#f0f4f8; color:var(--text); }
+a { text-decoration:none; color:inherit; }
+
+/* ── PAGE ── */
+.details-page { max-width:860px; margin:0 auto; padding:40px 24px 60px; }
+
+/* ── HEADER ── */
+.details-header { text-align:center; margin-bottom:36px; }
+.details-badge {
+  display:inline-block; background:var(--amber-lt); color:var(--dark);
+  padding:5px 16px; border-radius:20px; font-size:.8rem; font-weight:600; margin-bottom:14px;
+}
+.details-header h1 {
+  font-family:'Space Grotesk',sans-serif; font-size:1.9rem; font-weight:700;
+  color:var(--dark); margin-bottom:8px;
+}
+.details-header p { font-size:.95rem; color:var(--muted); }
+
+/* ── BANNER ── */
+.form-banner {
+  padding:12px 16px; border-radius:8px; font-size:.88rem; font-weight:500;
+  margin-bottom:20px; line-height:1.4;
+}
+.form-banner.success { background:#d1fae5; color:#065f46; border:1px solid #a7f3d0; }
+.form-banner.error   { background:#fee2e2; color:#991b1b; border:1px solid #fca5a5; }
+.form-banner.hidden  { display:none; }
+
+/* ── FORM CONTAINER ── */
+.form-container {
+  background:var(--white); border-radius:16px;
+  border:1px solid var(--border); box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+/* ── SECTION ── */
+.form-section {
+  padding:28px 32px;
+  border-bottom:1px solid var(--border);
+}
+.form-section:last-of-type { border-bottom:none; }
+.form-section h2 {
+  font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:700;
+  color:var(--dark); margin-bottom:20px;
+  padding-bottom:10px; border-bottom:2px solid var(--amber-lt);
+}
+
+/* ── GRID ── */
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-group { display:flex; flex-direction:column; gap:6px; }
+.form-group.full { grid-column:1/-1; }
+
+.form-group label {
+  font-size:.8rem; font-weight:700; color:var(--text);
+  display:flex; align-items:center; gap:6px;
+}
+.optional { font-size:.72rem; color:var(--muted); font-weight:400; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding:10px 14px; border:1.5px solid var(--border); border-radius:8px;
+  font-size:.9rem; background:#f9fafb; font-family:inherit;
+  transition:border-color .2s, box-shadow .2s; color:var(--text);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline:none; border-color:var(--amber); background:var(--white);
+  box-shadow:0 0 0 3px rgba(255,191,35,.12);
+}
+.form-group textarea { resize:vertical; min-height:72px; }
+
+/* ── ACTIONS ── */
+.form-actions {
+  padding:24px 32px;
+  display:flex; align-items:center; gap:14px;
+  background:#fafafa; border-top:1px solid var(--border);
+}
+.btn-submit {
+  padding:12px 32px; background:var(--amber); color:var(--dark);
+  font-weight:700; font-size:.95rem; border:none; border-radius:10px;
+  cursor:pointer; transition:background .2s, transform .15s; font-family:inherit;
+}
+.btn-submit:hover:not(:disabled) { background:var(--amber-dk); transform:translateY(-1px); }
+.btn-submit:disabled { opacity:.6; cursor:not-allowed; }
+.btn-cancel {
+  padding:12px 24px; background:transparent; border:1.5px solid var(--border);
+  border-radius:10px; font-size:.9rem; font-weight:600; color:var(--muted);
+  transition:all .2s;
+}
+.btn-cancel:hover { border-color:var(--dark); color:var(--dark); }
+
+/* ── FOOTER ── */
+.details-footer {
+  background:var(--dark); color:rgba(255,255,255,.45);
+  text-align:center; padding:18px; font-size:.8rem; margin-top:0;
+}
+.details-footer strong { color:var(--amber); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .details-page { padding:24px 16px 40px; }
+  .form-section { padding:20px 16px; }
+  .form-grid { grid-template-columns:1fr; }
+  .form-actions { flex-direction:column; align-items:stretch; padding:20px 16px; }
+  .btn-submit, .btn-cancel { text-align:center; }
+}

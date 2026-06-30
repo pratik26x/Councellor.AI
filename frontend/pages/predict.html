@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MHT-CET College Predictor - Counsellor.AI | Rising Education</title>
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/predict.css" />
+</head>
+<body>
+  <script src="/js/nav.js"></script>
+  <div class="page-wrap">
+
+  <h2 class="title">MHT-CET College Predictor &mdash; Predict your chances of getting admission in top colleges</h2>
+
+  <div class="main">
+    <form id="prediction-form">
+      <div class="inputs">
+        <div class="percentile">
+          <p>Percentile</p>
+          <input type="number" required id="percentile" name="percentile" class="input-field" placeholder="Enter your percentile" min="0" max="100" step="0.01" />
+        </div>
+        <div class="branch">
+          <p>Branch (optional)</p>
+          <input type="text" name="branch" class="input-field" placeholder="e.g. Computer Engineering" />
+        </div>
+        <div class="category">
+          <p>Reservation Category</p>
+          <select id="category" name="category" class="input-field" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="OPEN">OPEN</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="EWS">EWS</option>
+            <option value="TWFS">TWFS</option>
+            <option value="NT1">NT1</option>
+          </select>
+        </div>
+        <div class="preferred-cities">
+          <p>Preferred Cities</p>
+          <input type="text" name="preferred_cities" class="input-field" placeholder="Pune, Mumbai (comma separated)" />
+        </div>
+        <button type="submit" id="predict-button">Predict Colleges</button>
+      </div>
+    </form>
+
+    <div class="img1">
+      <img src="/assets/search-engine-concept-illustration.png" alt="Illustration" />
+    </div>
+  </div>
+
+  <div id="result"></div>
+  <br />
+
+  <div class="container">
+    <h2>MHT-CET 2024 Marks vs Percentile</h2><br />
+    <table>
+      <thead><tr><th>MHT-CET Marks</th><th>MHT-CET Percentile</th></tr></thead>
+      <tbody>
+        <tr><td>160+</td><td>99.50+</td></tr>
+        <tr><td>140&ndash;160</td><td>99+</td></tr>
+        <tr><td>130&ndash;140</td><td>98&ndash;99</td></tr>
+        <tr><td>110&ndash;130</td><td>96&ndash;98</td></tr>
+        <tr><td>100&ndash;110</td><td>95&ndash;96</td></tr>
+        <tr><td>95&ndash;100</td><td>92&ndash;95</td></tr>
+        <tr><td>80&ndash;90</td><td>85&ndash;95</td></tr>
+        <tr><td>60&ndash;80</td><td>65&ndash;85</td></tr>
+        <tr><td>55&ndash;65</td><td>60&ndash;70</td></tr>
+        <tr><td>Below 55</td><td>Below 70</td></tr>
+      </tbody>
+    </table>
+  </div><br />
+
+  <div class="container">
+    <h2>MHT-CET 2024 Percentile vs Rank</h2><br />
+    <table>
+      <thead><tr><th>MHT-CET Percentile</th><th>MHT-CET Rank</th></tr></thead>
+      <tbody>
+        <tr><td>99&ndash;90</td><td>1 &ndash; 19,000</td></tr>
+        <tr><td>89&ndash;80</td><td>19,001 &ndash; 30,000</td></tr>
+        <tr><td>79&ndash;70</td><td>30,001 &ndash; 40,000</td></tr>
+        <tr><td>69&ndash;60</td><td>40,001 &ndash; 47,000</td></tr>
+        <tr><td>59&ndash;50</td><td>47,001 &ndash; 53,000</td></tr>
+        <tr><td>49&ndash;40</td><td>53,001 &ndash; 59,000</td></tr>
+        <tr><td>39&ndash;30</td><td>59,001 &ndash; 64,000</td></tr>
+        <tr><td>29&ndash;20</td><td>64,001 &ndash; 73,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/js/predict.js"></script>
+  </div><!-- /.page-wrap -->
+</body>
+</html>
